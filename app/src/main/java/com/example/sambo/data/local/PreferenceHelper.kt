@@ -16,6 +16,11 @@ object PreferenceHelper {
             PREFERENCE_NAME, Context.MODE_PRIVATE)
     }
 
+    fun setIsFirtstLaunchSecond(){      // для регистрации и входа
+        preference?.edit()?.putBoolean(IS_FIRST_LAUNCH, false)?.apply()
+    }
+    fun getIsFirtstLaunchSecond() =  preference?.getBoolean(IS_FIRST_LAUNCH,true) ?:true  // для регистрации и входа
+
     fun setIsFirstLaunch(){
         preference?.edit()?.putBoolean(
             IS_FIRST_LAUNCH,false)?.apply()

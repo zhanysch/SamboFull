@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/star"
+    tools:context=".ui.main.RegistrationTwoFragment">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выбери свою роль"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="375dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <Button
+        android:id="@+id/btnsamb"
+        app:layout_constraintTop_toBottomOf="@id/text"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Самбист"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/buton_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnTren"
+        app:layout_constraintTop_toBottomOf="@id/btnsamb"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="Тренер"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/buton_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnParent"
+        app:layout_constraintTop_toBottomOf="@id/btnTren"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="Родитель"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/buton_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
