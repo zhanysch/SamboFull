@@ -18,20 +18,12 @@ class RegistrationOneFragment : BaseFragment() {
     }
 
     private fun setupListeners() {
-        if (PreferenceHelper.getIsFirtstLaunchSecond()){
-            btnRegistr.setOnClickListener {
+        btnRegistr.setOnClickListener {
                 findNavController().navigate(R.id.action_registrationOneFragment_to_registrationTwoFragment2)
                 // overidePening???
-            }
         }
 
 
-        /*else{
-            btnRegistr.setOnClickListener {
-                val intent = Intent(activity, MainActivity::class.java)
-                startActivity(intent)
-
-            } }*/
 
         btnSign.setOnClickListener {
             val intent = Intent(activity, MainActivity::class.java)

@@ -3,6 +3,7 @@ package com.example.sambo.ui.onboard
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import com.example.sambo.R
@@ -15,12 +16,13 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class OnBoardMainFragment : BaseFragment() {
 
     private val list = arrayListOf<Fragment>()
-    private val viewModel by viewModel<OnBoardMainFragmentViewModel>()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViewPager()
         setupListeners()
+
     }
 
     override fun getviewId() = R.layout.activity_on_board
