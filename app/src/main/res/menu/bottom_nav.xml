@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/home_name" />
+    <item
+        android:id="@+id/competition"
+        android:icon="@drawable/ic_award"
+        android:title="@string/competition_name" />
+
+    <item
+        android:id="@+id/courses"
+        android:icon="@drawable/ic_baseline_play_circle_filled_24"
+        android:title="@string/courses_name" />
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="@string/profile_name" />
+</menu>
