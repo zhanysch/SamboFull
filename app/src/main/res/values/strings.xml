@@ -6,4 +6,8 @@
     <string name="proceed">Продолжить</string>
     <string name="skip">Пропустить</string>
     <string name="prive">Привет!\n Ты тут впервые?</string>
+    <string name="home_name">Главная</string>
+    <string name="competition_name">Соревнования</string>
+    <string name="courses_name">Курсы</string>
+    <string name="profile_name">Мой профиль</string>
 </resources>
