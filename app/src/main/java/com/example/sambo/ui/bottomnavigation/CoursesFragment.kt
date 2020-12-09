@@ -16,22 +16,22 @@ class CoursesFragment: BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupBottomSheet()
+
 
     }
 
 
 
-    private fun setupBottomSheet() {
-        bottomSheetBehavior = BottomSheetBehavior.from(textChange) // (bottomSheet) id xml file viewbottomsheet
+   /* private fun setupBottomSheet() {
+      *//*  bottomSheetBehavior = BottomSheetBehavior.from(textChange) // (bottomSheet) id xml file viewbottomsheet    // troubles with
         textChange.setOnClickListener {
-            if (bottomSheetBehavior?.state == BottomSheetBehavior.STATE_EXPANDED){
+            if (bottomSheetBehavior?.state == BottomSheetBehavior.STATE_EXPANDED){         !!!!!// bottomsheet dialog
                 bottomSheetBehavior?.state = BottomSheetBehavior.STATE_COLLAPSED
             } else if (bottomSheetBehavior?.state == BottomSheetBehavior.STATE_COLLAPSED){
                 bottomSheetBehavior?.state = BottomSheetBehavior.STATE_EXPANDED
             }
 
-        }
+        }*//*
 
         bottomSheetBehavior?.addBottomSheetCallback(object :
         BottomSheetBehavior.BottomSheetCallback(){
@@ -44,6 +44,6 @@ class CoursesFragment: BaseFragment() {
             }
 
         })
-    }
+    }*/
 
 }
