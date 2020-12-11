@@ -1,16 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorBlue"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/learn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/learn"
+            android:fontFamily="@font/gilroy_bold"
+            android:textColor="@color/colorWhite"
+            android:textSize="30sp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="34dp"
+
+            android:layout_marginEnd="178dp"/>
+
+    
+    <androidx.core.widget.NestedScrollView
+        app:layout_constraintTop_toBottomOf="@id/learn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/backgr_forprofilefragment"
+        android:layout_marginTop="17dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/corner_profile">
+
+            <ImageView
+                android:id="@+id/image"
+                android:src="@drawable/rectangle_horizontal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="320dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="23dp"/>
+            <ImageView
+                android:background="@drawable/ic_arrow"
+                app:layout_constraintTop_toTopOf="@id/image"
+                app:layout_constraintBottom_toBottomOf="@id/image"
+                app:layout_constraintStart_toStartOf="@id/image"
+                app:layout_constraintEnd_toEndOf="@id/image"
+                android:layout_marginStart="284dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="17dp"
+                android:layout_width="11dp"
+                android:layout_height="11dp"/>
+
+            <TextView
+                android:id="@+id/textChange"
+                android:focusable="true"
+                android:clickable="true"
+                app:layout_constraintTop_toTopOf="@id/image"
+                app:layout_constraintStart_toStartOf="@id/image"
+                app:layout_constraintEnd_toEndOf="@id/image"
+                app:layout_constraintBottom_toBottomOf="@id/image"
+                android:layout_width="wrap_content"
+                android:textSize="16sp"
+                android:fontFamily="@font/gilroy_semibold"
+                android:text="Тема: Основы боевых искусств"
+                android:textColor="@color/colorBlue"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="14dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="56dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_courses"
+                app:layout_constraintTop_toBottomOf="@id/image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"
+                tools:listitem="@layout/recycler_helper"/>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
