@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sambo.R
 import com.example.sambo.ui.bottomnavigation.*
+import com.example.sambo.ui.bottomnavigation.courses.CoursesFragment
+import com.example.sambo.ui.bottomnavigation.profilehelper.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

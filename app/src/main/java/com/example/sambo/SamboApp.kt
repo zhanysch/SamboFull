@@ -1,18 +1,19 @@
 package com.example.sambo
 
 import android.app.Application
-import android.content.Context
+import com.example.sambo.data.di.appModules
 import com.example.sambo.data.local.PreferenceHelper
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
 class SamboApp:Application() {
 
     override fun onCreate() {
         super.onCreate()
         PreferenceHelper.init(applicationContext)
+        startKoin { androidContext(this@SamboApp)
+            modules(appModules)
+        }
     }
-    companion object {     // context создан для того чтобы смогли к нему обратиться с любого класа
-        // т.к object FileUtils требует Context!!!!
-        private lateinit var context: Context
-        fun applicationContext() = context
-    }
+
 }

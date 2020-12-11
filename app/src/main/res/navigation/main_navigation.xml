@@ -37,5 +37,18 @@
         android:id="@+id/registrationTwoFragment2"
         android:name="com.example.sambo.ui.main.RegistrationTwoFragment"
         android:label="activity_regist"
-        tools:layout="@layout/activity_regist" />
+        tools:layout="@layout/activity_regist" >
+        <action
+            android:id="@+id/action_registrationTwoFragment2_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.sambo.ui.bottomnavigation.profilehelper.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/profile_fragment">
+        <action
+            android:id="@+id/action_profileFragment_to_registrationOneFragment"
+            app:destination="@id/registrationOneFragment" />
+    </fragment>
 </navigation>

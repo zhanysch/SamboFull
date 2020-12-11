@@ -1,8 +1,10 @@
-package com.example.sambo.ui.bottomnavigation
+package com.example.sambo.ui.bottomnavigation.profilehelper
 
+import android.app.Activity
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.example.sambo.R
 import com.example.sambo.ui.bottomnavigation.profilehelper.BaseUserPhotoFragment
 import com.example.sambo.ui.bottomnavigation.profilehelper.pickPhotofromGalerryWithPermissionCheck
@@ -23,6 +25,10 @@ class ProfileFragment: BaseUserPhotoFragment() {
     private fun setupListeners() {
         changePhoto.setOnClickListener {
             pickPhotofromGalerryWithPermissionCheck()
+        }
+
+        ext_text.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_registrationOneFragment)
         }
     }
 

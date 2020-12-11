@@ -66,8 +66,8 @@ abstract  class BaseUserPhotoFragment : BaseFragment(){
                 }
                 RESULT_GALLERY -> {
                     if (data !=null && data.data !=null){
-                        val context = SamboApp.applicationContext()
-                        val fileName = getImagePathFromInputStreamUri(context, data.data!!)
+
+                        val fileName = getImagePathFromInputStreamUri(requireContext(), data.data!!)
                         val file = File(fileName)
                         showPhoto(file)
 
@@ -80,14 +80,14 @@ abstract  class BaseUserPhotoFragment : BaseFragment(){
 
     private fun getImageFromCameraUri(data: Intent?, filname: String): Uri? { // для помощи загрузки с камеры!!
        var isCamera = true
-        val context = SamboApp.applicationContext()
+
         if (data != null && data.data != null){
             val action = data.action
 
             isCamera = action !=null && action == MediaStore.ACTION_IMAGE_CAPTURE
         }
         return if( isCamera || data!!.data == null)
-            getCaptureImageOutputUri(context, filname)
+            getCaptureImageOutputUri(requireContext(), filname)
         else
             data.data
     }
@@ -112,9 +112,9 @@ abstract  class BaseUserPhotoFragment : BaseFragment(){
     }
 
     fun getNormalizedUri(  uri: Uri?): Uri? { // для помощи загрузки с камеры!!
-        val context = SamboApp.applicationContext()
+
         return  if (uri !=null && uri.toString().contains("content:"))
-            Uri.fromFile(getPath(context , uri, MediaStore.Images.Media.DATA))
+            Uri.fromFile(getPath(requireContext() , uri, MediaStore.Images.Media.DATA))
         else uri
     }
 
