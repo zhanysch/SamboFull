@@ -21,3 +21,8 @@ interface CoursesService {
 
 
 // //https://api.sambo.beta.trinitydigital.ru/api/v1/ categories ? limit=20&page=1&order={%22rank%22:%22asc%22}
+
+
+
+//https://api.sambo.beta.trinitydigital.ru/api/v1/educational_materials?limit=20&page=1&category_id=11
+//&order= "{\"id\":\"asc\"}"

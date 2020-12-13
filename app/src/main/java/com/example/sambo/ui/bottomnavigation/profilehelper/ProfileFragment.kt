@@ -4,6 +4,7 @@ import android.app.Activity
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
+import android.view.View.X
 import androidx.navigation.fragment.findNavController
 import com.example.sambo.R
 import com.example.sambo.ui.bottomnavigation.profilehelper.BaseUserPhotoFragment
@@ -11,6 +12,7 @@ import com.example.sambo.ui.bottomnavigation.profilehelper.pickPhotofromGalerryW
 import com.google.android.material.shape.CornerFamily
 import kotlinx.android.synthetic.main.profile_fragment.*
 import java.io.File
+import java.util.*
 
 class ProfileFragment: BaseUserPhotoFragment() {
 
@@ -20,6 +22,8 @@ class ProfileFragment: BaseUserPhotoFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupListeners()
         makeroundImage()
+
+        
     }
 
     private fun setupListeners() {
