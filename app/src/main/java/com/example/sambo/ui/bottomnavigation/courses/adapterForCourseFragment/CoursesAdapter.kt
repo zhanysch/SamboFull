@@ -29,18 +29,8 @@ class CoursesViewHolder(view: View):RecyclerView.ViewHolder(view){
         itemView.textCourse.text = item?.title.toString()
         itemView.Material.text = item?.categories_list.toString()
 
-        //val image = data.weather.first().icon
-        val image = item?.preview
-        Picasso.get().load(item?.preview).into(itemView.imageCourse,object :Callback{
-            override fun onSuccess() {
-                Log.d("fsgsdg","asdgsdgsdgds")
-            }
 
-            override fun onError(e: Exception?) {
-                Log.d("fsgsdg","asdgsdgsdgds")
-            }
-
-        })
+        Picasso.get().load(item?.preview).into(itemView.imageCourse)
 
     }
 }

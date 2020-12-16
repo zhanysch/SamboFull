@@ -19,8 +19,7 @@ class RegistrationOneFragment : BaseFragment() {
 
     private fun setupListeners() {
         btnRegistr.setOnClickListener {
-                findNavController().navigate(R.id.action_registrationOneFragment_to_registrationTwoFragment2)
-                // overidePening???
+                findNavController().navigate(R.id.action_profileFragment_to_registrationOneFragment)
         }
 
 

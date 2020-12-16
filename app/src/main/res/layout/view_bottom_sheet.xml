@@ -11,12 +11,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="30dp"
-        android:id="@+id/recycler_bottomsheet"
+        android:id="@+id/recyclerBottomsheet"
        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
-        tools:listitem=""/>
+        tools:listitem="@layout/bottom_sheethelper"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
