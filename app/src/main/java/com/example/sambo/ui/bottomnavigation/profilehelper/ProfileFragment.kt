@@ -9,6 +9,8 @@ import android.view.View
 import android.view.View.X
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.view.ContextThemeWrapper
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.sambo.R
 import com.example.sambo.ui.bottomnavigation.courses.CoursesViewModel
@@ -25,12 +27,14 @@ import java.util.*
 class ProfileFragment: BaseUserPhotoFragment() {
 
     override fun resID() = R.layout.profile_fragment
+    lateinit var navController: NavController
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupListeners()
         makeroundImage()
+        navController = Navigation.findNavController(view)
     }
 
     private fun setupListeners() {
@@ -39,7 +43,8 @@ class ProfileFragment: BaseUserPhotoFragment() {
         }
 
         ext_text.setOnClickListener {
-            findNavController().navigate(R.id.action_registrationTwoFragment2_to_profileFragment)
+            findNavController().navigate(R.id.action_profileFragment_to_registrationOneFragment)
+
         }
     }
 
