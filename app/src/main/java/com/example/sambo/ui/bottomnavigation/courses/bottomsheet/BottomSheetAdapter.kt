@@ -9,17 +9,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sambo.R
 import com.example.sambo.data.modelBottomSheet.BottomSheetRows
 import kotlinx.android.synthetic.main.bottom_sheethelper.view.*
-import kotlinx.android.synthetic.main.recycler_helper.view.*
-import kotlinx.android.synthetic.main.recycler_helper.view.textCourse
 
-class BottomSheetAdapter: ListAdapter<BottomSheetRows,BottomViewHolder>(DiffUtillBottom()) {
+class BottomSheetAdapter(private val listner: ItemListener): ListAdapter<BottomSheetRows,BottomViewHolder>(DiffUtillBottom()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BottomViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.bottom_sheethelper,parent,false)
         return BottomViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: BottomViewHolder, position: Int) {
-        holder.bind(getItem(position ))
+        holder.bind(getItem(position),listner)
     }
 }
 
@@ -35,8 +33,14 @@ class  DiffUtillBottom: DiffUtil.ItemCallback<BottomSheetRows>(){
 }
 
 class BottomViewHolder(view : View) : RecyclerView.ViewHolder(view){
-    fun bind(item: BottomSheetRows) {
+    fun bind(
+        item: BottomSheetRows,
+        listner: ItemListener
+    ) {
         itemView.category_bottomsheet.text = item.title
+        itemView.setOnClickListener {
+            listner.itemsClick(item)
+        }
 
     }
 }

@@ -1,40 +1,30 @@
 package com.example.sambo.ui.bottomnavigation.profilehelper
 
-import android.app.Activity
 import android.content.DialogInterface
-import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
-import android.view.View.X
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.view.ContextThemeWrapper
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.sambo.R
-import com.example.sambo.ui.bottomnavigation.courses.CoursesViewModel
-import com.example.sambo.ui.bottomnavigation.profilehelper.BaseUserPhotoFragment
-import com.example.sambo.ui.bottomnavigation.profilehelper.pickPhotofromGalerryWithPermissionCheck
+import com.example.sambo.data.local.PreferenceHelper
 import com.example.sambo.ui.main.ForFragmentActivity
+import com.example.sambo.ui.main.MainActivity
 import com.example.sambo.ui.main.RegistrationOneFragment
+import com.example.sambo.utils.cleanLaunchActivity
 import com.google.android.material.shape.CornerFamily
 import kotlinx.android.synthetic.main.profile_fragment.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.File
-import java.util.*
 
 class ProfileFragment: BaseUserPhotoFragment() {
 
     override fun resID() = R.layout.profile_fragment
-    lateinit var navController: NavController
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupListeners()
         makeroundImage()
-        navController = Navigation.findNavController(view)
     }
 
     private fun setupListeners() {
@@ -43,8 +33,8 @@ class ProfileFragment: BaseUserPhotoFragment() {
         }
 
         ext_text.setOnClickListener {
-            findNavController().navigate(R.id.action_profileFragment_to_registrationOneFragment)
-
+            PreferenceHelper.clear()
+            cleanLaunchActivity<ForFragmentActivity>()
         }
     }
 
@@ -82,5 +72,4 @@ class ProfileFragment: BaseUserPhotoFragment() {
         })
         dialog.show()
     }
-
 }

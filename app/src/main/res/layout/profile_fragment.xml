@@ -48,7 +48,6 @@
                 android:id="@+id/cardview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/corner_profile"
                 app:layout_constraintTop_toTopOf="@id/constrMain"
                 android:layout_marginTop="25dp"
                 app:cardElevation="3dp"
@@ -62,7 +61,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constr_two"
                 app:layout_constraintTop_toTopOf="@id/cardview"
-
+                android:background="@drawable/corner_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
