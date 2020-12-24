@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.view_bottom_sheet.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class BottomSheet(): BottomSheetDialogFragment(),ItemListener {
+class BottomSheet: BottomSheetDialogFragment(),ItemListener {
 
 
     override fun onCreateView(
@@ -39,7 +39,7 @@ class BottomSheet(): BottomSheetDialogFragment(),ItemListener {
     }
 
     override fun itemsClick(item: BottomSheetRows) {
-
+        TODO("Not yet implemented")
     }
 
 
