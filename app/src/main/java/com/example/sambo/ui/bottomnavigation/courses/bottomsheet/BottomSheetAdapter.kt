@@ -37,10 +37,14 @@ class BottomViewHolder(view : View) : RecyclerView.ViewHolder(view){
         item: BottomSheetRows,
         listner: ItemListener
     ) {
+        itemView.setOnClickListener {
+            listner.itemsClick(item)
+        }
         itemView.category_bottomsheet.text = item.title
         itemView.setOnClickListener {
             listner.itemsClick(item)
         }
+
 
     }
 }

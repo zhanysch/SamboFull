@@ -38,7 +38,7 @@ class BottomSheet: BottomSheetDialogFragment(),ItemListener {
     }
 
     override fun itemsClick(item: BottomSheetRows) {
-       item.title
+       vm.text.postValue(item.title)
     }
 
 
