@@ -33,13 +33,12 @@ class BottomSheet: BottomSheetDialogFragment(),ItemListener {
 
         recyclerBottomsheet.adapter = adapter
         vm.dataCategory.observe(viewLifecycleOwner, Observer {
-            adapter.submitList(it)   
-
+            adapter.submitList(it)
         })
     }
 
     override fun itemsClick(item: BottomSheetRows) {
-        TODO("Not yet implemented") //32
+       item.title
     }
 
 
