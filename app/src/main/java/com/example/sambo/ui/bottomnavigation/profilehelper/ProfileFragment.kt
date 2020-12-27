@@ -1,13 +1,17 @@
 package com.example.sambo.ui.bottomnavigation.profilehelper
 
-import android.app.Activity
+import android.content.DialogInterface
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import com.example.sambo.R
-import com.example.sambo.ui.bottomnavigation.profilehelper.BaseUserPhotoFragment
-import com.example.sambo.ui.bottomnavigation.profilehelper.pickPhotofromGalerryWithPermissionCheck
+import com.example.sambo.data.local.PreferenceHelper
+import com.example.sambo.ui.main.ForFragmentActivity
+import com.example.sambo.ui.main.MainActivity
+import com.example.sambo.ui.main.RegistrationOneFragment
+import com.example.sambo.utils.cleanLaunchActivity
 import com.google.android.material.shape.CornerFamily
 import kotlinx.android.synthetic.main.profile_fragment.*
 import java.io.File
@@ -15,6 +19,7 @@ import java.io.File
 class ProfileFragment: BaseUserPhotoFragment() {
 
     override fun resID() = R.layout.profile_fragment
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -24,11 +29,12 @@ class ProfileFragment: BaseUserPhotoFragment() {
 
     private fun setupListeners() {
         changePhoto.setOnClickListener {
-            pickPhotofromGalerryWithPermissionCheck()
+            alertDialog()
         }
 
         ext_text.setOnClickListener {
-            findNavController().navigate(R.id.action_profileFragment_to_registrationOneFragment)
+            PreferenceHelper.clear()
+            cleanLaunchActivity<ForFragmentActivity>()
         }
     }
 
@@ -50,4 +56,20 @@ class ProfileFragment: BaseUserPhotoFragment() {
         image.shapeAppearanceModel = shape
     }
 
+    private fun alertDialog(){
+        val dialog = AlertDialog.Builder(android.view.ContextThemeWrapper(requireContext(),R.style.myDialog))
+        dialog.setTitle("Выбор загрузки фото")
+        dialog.setPositiveButton("камера", object : DialogInterface.OnClickListener{
+            override fun onClick(p0: DialogInterface?, p1: Int) {
+                shootPhotoWithPermissionCheck()
+            }
+        })
+
+        dialog.setNegativeButton("галерея",object : DialogInterface.OnClickListener{
+            override fun onClick(p0: DialogInterface?, p1: Int) {
+                pickPhotofromGalerryWithPermissionCheck()
+            }
+        })
+        dialog.show()
+    }
 }

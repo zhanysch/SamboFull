@@ -16,7 +16,7 @@ object RetrofitBuilder {
            .client(getClient())
            .build()
             .create(CoursesService::class.java)
-        ////http://api.marketstack.com/v1/eod?access_key=c06ea77867714c7b46d31197cc5d5d67&symbols=AAPL&sort=DESC&limit=100&offset=200
+
         //https://api.sambo.beta.trinitydigital.ru/api/v1/ categories?limit=20&page=1&order={%22rank%22:%22asc%22}
 
         //api/v1/educational_materials?limit=20&page=1&category_id=11&order= "{\"id\":\"asc\"}"

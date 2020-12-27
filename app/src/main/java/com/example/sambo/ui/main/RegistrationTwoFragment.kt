@@ -18,20 +18,20 @@ class RegistrationTwoFragment :BaseFragment(){
 
     private fun setupListeners() {
         btnsamb.setOnClickListener {
-            PreferenceHelper.setIsFirtstLaunchSecond()
+
             val intent = Intent(activity, MainActivity::class.java)
             startActivity(intent)
 
 
         }
         btnTren.setOnClickListener {
-            PreferenceHelper.setIsFirtstLaunchSecond()
+
             val intent = Intent(activity, MainActivity::class.java)
             startActivity(intent)
 
         }
         btnParent.setOnClickListener {
-            PreferenceHelper.setIsFirtstLaunchSecond()
+
             val intent = Intent(activity, MainActivity::class.java)
             startActivity(intent)
 
