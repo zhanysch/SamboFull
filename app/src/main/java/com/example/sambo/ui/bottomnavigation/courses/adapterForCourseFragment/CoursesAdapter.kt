@@ -28,9 +28,6 @@ class CoursesViewHolder(view: View):RecyclerView.ViewHolder(view){
     fun bind(item: Rows?) {
         itemView.textCourse.text = item?.title.toString()
         itemView.Material.text = item?.categories_list.toString()
-
-
         Picasso.get().load(item?.preview).into(itemView.imageCourse)
-
     }
 }

@@ -17,7 +17,10 @@ class BottomSheetAdapter(private val listner: ItemListener): ListAdapter<BottomS
     }
 
     override fun onBindViewHolder(holder: BottomViewHolder, position: Int) {
-        holder.bind(getItem(position),listner)
+        holder.bind(getItem(position))
+        holder.itemView.category_bottomsheet.setOnClickListener {
+            listner.itemsClick(getItem(position))       // для изминения textview course fragment при клике textview из recyclrerVIew!!!!!!!!
+        }
     }
 }
 
@@ -29,22 +32,13 @@ class  DiffUtillBottom: DiffUtil.ItemCallback<BottomSheetRows>(){
     override fun areContentsTheSame(oldItem: BottomSheetRows, newItem: BottomSheetRows): Boolean {
         return oldItem.title == newItem.title
     }
-
 }
 
 class BottomViewHolder(view : View) : RecyclerView.ViewHolder(view){
     fun bind(
-        item: BottomSheetRows,
-        listner: ItemListener
+        item: BottomSheetRows
+
     ) {
-        itemView.setOnClickListener {
-            listner.itemsClick(item)
-        }
         itemView.category_bottomsheet.text = item.title
-        itemView.setOnClickListener {
-            listner.itemsClick(item)
-        }
-
-
     }
 }

@@ -35,6 +35,9 @@ class BottomSheet: BottomSheetDialogFragment(),ItemListener {
         vm.dataCategory.observe(viewLifecycleOwner, Observer {
             adapter.submitList(it)
         })
+        recyclerBottomsheet.setOnClickListener {
+
+        }
     }
 
     override fun itemsClick(item: BottomSheetRows) {

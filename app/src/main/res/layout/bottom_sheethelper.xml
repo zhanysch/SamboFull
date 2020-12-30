@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:clickable="true"
     android:focusable="true"
+    android:id="@+id/parentLayout"
+    android:background="?android:attr/selectableItemBackground"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 

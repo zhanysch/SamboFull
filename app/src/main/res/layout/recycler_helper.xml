@@ -18,7 +18,7 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"/>
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageCourse"
         app:layout_constraintTop_toTopOf="@id/corner"
         app:layout_constraintBottom_toBottomOf="@id/corner"
