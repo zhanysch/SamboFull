@@ -1,6 +1,5 @@
 package com.example.sambo.ui.bottomnavigation.courses
 
-import android.app.Dialog
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.sambo.data.modelcourses.MainCourseModel
@@ -13,8 +12,6 @@ import com.example.sambo.data.repository.SamboRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import retrofit2.Call
-import retrofit2.Response
 
 class CoursesViewModel(private val service : SamboRepository) : BasePagedViewModel<Rows, CoursesViewModel.CourseDataSource>(){
 
@@ -26,14 +23,10 @@ class CoursesViewModel(private val service : SamboRepository) : BasePagedViewMod
         }
     }
 
-    val text = MutableLiveData<String>()
+    val text = MutableLiveData<BottomSheetRows>()
     val data = getPagedList()
     val dataCategory = MutableLiveData<List<BottomSheetRows>>()
-
-    fun textChange(){
-
-    }
-
+    var categoryId :Int = -1
 
     fun loadList(){
         viewModelScope.launch {
@@ -43,16 +36,21 @@ class CoursesViewModel(private val service : SamboRepository) : BasePagedViewMod
         }
     }
 
+    fun choosedCategory(item: BottomSheetRows) {
+        categoryId = item.id
+        sourceFactory.dataSourceFactoryLiveData.value?.invalidate()
+    }
+
     inner class CourseDataSource(  // это внутренний класс, а не метод
         scope : CoroutineScope
     ) : BaseDataSource<Rows>(scope){//<Data> это class  тут укзываетс, чтo тип T это -> class Data (data class)
         override fun getListByPageNumber(limit: Int, page: Int): MainCourseModel<Rows>? {
             return runBlocking {
-                val data = service.loadData(limit=limit,page = page)
+                val data = service.loadData(limit=limit,page = page,categoryId = categoryId)
+
                 return@runBlocking data
             }
         }
-
     }
 }
 

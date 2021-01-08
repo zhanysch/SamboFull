@@ -31,6 +31,14 @@ interface CoursesService {
    ) : Response<BottomSheetModel>
 
    // https://api.sambo.beta.trinitydigital.ru/ api/v1/categories ? limit =20 & page=1 & order="{\"id\":\"asc\"}"
+
+    @GET("api/v1/educational_materials")
+    suspend fun getCategoryId(
+        @Query("limit") limit: Int,  // для пагинации лимит сколько можно загружать
+        @Query("page") page: Int ,
+        @Query("order") order: String,
+        @Query("category_id") categoryId: Int
+    ): MainCourseModel<Rows>
 }
 
 
