@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sambo.R
+import com.google.android.material.shape.CornerFamily
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_helper.view.*
@@ -29,5 +30,14 @@ class CoursesViewHolder(view: View):RecyclerView.ViewHolder(view){
         itemView.textCourse.text = item?.title.toString()
         itemView.Material.text = item?.categories_list.toString()
         Picasso.get().load(item?.preview).into(itemView.imageCourse)
+
+        val radius = itemView.context.resources.getDimension(R.dimen.imageCutted)
+        val shape = itemView.imageCourse.shapeAppearanceModel.toBuilder()
+            .setTopLeftCorner(CornerFamily.ROUNDED, radius)
+            .setTopRightCorner(CornerFamily.ROUNDED, radius)
+            .setBottomLeftCorner(CornerFamily.ROUNDED, radius)
+            .setBottomRightCorner(CornerFamily.ROUNDED, radius)
+            .build()
+        itemView.imageCourse.shapeAppearanceModel = shape
     }
 }
