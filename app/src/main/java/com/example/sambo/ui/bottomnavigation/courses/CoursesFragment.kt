@@ -29,7 +29,7 @@ class CoursesFragment: BaseFragment(), ItemListener {
 
         vm.loadList()
         vm.text.observe(viewLifecycleOwner, Observer {
-            if (it.isNotEmpty())
+            if (it.isNotEmpty())         // изминен текста при клике
                 textChange.text = it
         })
 

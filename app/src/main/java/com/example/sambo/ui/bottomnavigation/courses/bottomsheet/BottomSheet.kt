@@ -41,7 +41,7 @@ class BottomSheet: BottomSheetDialogFragment(),ItemListener {
     }
 
     override fun itemsClick(item: BottomSheetRows) {
-       vm.text.postValue(item.title)
+       vm.text.postValue(item.title)             // изминен текста в при клике на recyclerview
     }
 
 
