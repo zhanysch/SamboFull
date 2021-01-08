@@ -26,8 +26,13 @@ class CoursesViewModel(private val service : SamboRepository) : BasePagedViewMod
         }
     }
 
+    val text = MutableLiveData<String>()
     val data = getPagedList()
     val dataCategory = MutableLiveData<List<BottomSheetRows>>()
+
+    fun textChange(){
+
+    }
 
 
     fun loadList(){

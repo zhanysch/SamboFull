@@ -28,6 +28,12 @@ class CoursesFragment: BaseFragment(), ItemListener {
         super.onViewCreated(view, savedInstanceState)
 
         vm.loadList()
+        vm.text.observe(viewLifecycleOwner, Observer {
+            if (it.isNotEmpty())         // изминен текста при клике на recyclerview
+                textChange.text = it
+
+        })
+
 
         recycler_courses.adapter = adapter
         vm.data.observe(viewLifecycleOwner, Observer {
@@ -41,8 +47,6 @@ class CoursesFragment: BaseFragment(), ItemListener {
     }
 
     override fun itemsClick(item: BottomSheetRows) {
-        TODO("Not yet implemented")
+               //пусто
     }
-
-
 }
