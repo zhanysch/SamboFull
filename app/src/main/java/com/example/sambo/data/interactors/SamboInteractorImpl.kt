@@ -11,7 +11,7 @@ import retrofit2.Response
 interface SamboInteractor{
     suspend fun loadData(limit: Int, page: Int) : MainCourseModel<Rows>
     suspend fun loadCategory(limit: Int,page: Int)  : Response<BottomSheetModel>
-    suspend fun loadDataWithCategoryId(limit: Int,page: Int,categoryId: Int) : MainCourseModel<Rows>
+    suspend fun loadDataWithCategoryId(limit: Int,page: Int,categoryId: Int) : MainCourseModel<Rows>  // для подргузк данных при клике категории
 
 }
 
@@ -25,7 +25,7 @@ class SamboInteractorImpl (private val service : CoursesService) : SamboInteract
         return service.getBottomSheet(limit=20,page = 1,order ="{\"id\":\"asc\"}")
     }
 
-    override suspend fun loadDataWithCategoryId(
+    override suspend fun loadDataWithCategoryId(  // для подргузк данных при клике категории
         limit: Int,
         page: Int,
         categoryId: Int

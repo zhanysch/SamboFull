@@ -26,7 +26,7 @@ class CoursesViewModel(private val service : SamboRepository) : BasePagedViewMod
     val text = MutableLiveData<BottomSheetRows>()
     val data = getPagedList()
     val dataCategory = MutableLiveData<List<BottomSheetRows>>()
-    var categoryId :Int = -1
+    var categoryId :Int = -1   // -1 значен по умолчанию для подгрузки  оперделенных данных при выборе категории
 
     fun loadList(){
         viewModelScope.launch {
@@ -36,8 +36,8 @@ class CoursesViewModel(private val service : SamboRepository) : BasePagedViewMod
         }
     }
 
-    fun choosedCategory(item: BottomSheetRows) {
-        categoryId = item.id
+    fun choosedCategory(item: BottomSheetRows) {   // функц выбирает категорию //  dataSourceFactoryLiveData из класса  BaseDataSource
+        categoryId = item.id                       //invalidate ????
         sourceFactory.dataSourceFactoryLiveData.value?.invalidate()
     }
 
