@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_registone.*
 class RegistrationOneFragment : BaseFragment() {
     override fun getviewId() = R.layout.activity_registone
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupListeners()
@@ -19,15 +20,13 @@ class RegistrationOneFragment : BaseFragment() {
 
     private fun setupListeners() {
         btnRegistr.setOnClickListener {
-                findNavController().navigate(R.id.action_registrationOneFragment_to_registrationTwoFragment2)
+            PreferenceHelper.setIsLogetIn(true)
+            findNavController().navigate(R.id.action_registrationOneFragment_to_registrationTwoFragment2)
         }
-
-
 
         btnSign.setOnClickListener {
             val intent = Intent(activity, MainActivity::class.java)
             startActivity(intent)
-
         }
     }
 

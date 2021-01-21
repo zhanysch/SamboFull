@@ -33,7 +33,7 @@ class ProfileFragment: BaseUserPhotoFragment() {
         }
 
         ext_text.setOnClickListener {
-            PreferenceHelper.clear()
+           PreferenceHelper.setIsLogetIn(false)
             cleanLaunchActivity<ForFragmentActivity>()
         }
     }
