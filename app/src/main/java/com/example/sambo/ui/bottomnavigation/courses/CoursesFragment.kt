@@ -2,22 +2,15 @@ package com.example.sambo.ui.bottomnavigation.courses
 
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import androidx.lifecycle.Observer
 import com.example.sambo.R
 import com.example.sambo.data.modelBottomSheet.BottomSheetRows
 import com.example.sambo.ui.bottomnavigation.BaseFragment
 import com.example.sambo.ui.bottomnavigation.courses.adapterForCourseFragment.CoursesAdapter
 import com.example.sambo.ui.bottomnavigation.courses.bottomsheet.BottomSheet
-import com.example.sambo.ui.bottomnavigation.courses.bottomsheet.BottomSheetAdapter
 import com.example.sambo.ui.bottomnavigation.courses.bottomsheet.ItemListener
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import kotlinx.android.synthetic.main.bottom_sheethelper.*
 import kotlinx.android.synthetic.main.fragment_courses.*
-import kotlinx.android.synthetic.main.fragment_courses.view.*
-import kotlinx.android.synthetic.main.view_bottom_sheet.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CoursesFragment: BaseFragment(), ItemListener {
     override fun resID() = R.layout.fragment_courses
@@ -29,11 +22,10 @@ class CoursesFragment: BaseFragment(), ItemListener {
 
         vm.loadList()
         vm.text.observe(viewLifecycleOwner, Observer {
-            if (it.isNotEmpty())         // изминен текста при клике на recyclerview
-                textChange.text = it
-
+                 // изминен текста при клике на recyclerview
+                textChange.text = it.title
+              vm.choosedCategory(it)  // подгрузка картины при клике на категорию
         })
-
 
         recycler_courses.adapter = adapter
         vm.data.observe(viewLifecycleOwner, Observer {
@@ -46,7 +38,7 @@ class CoursesFragment: BaseFragment(), ItemListener {
         }
     }
 
-    override fun itemsClick(item: BottomSheetRows) {
-               //пусто
+    override fun itemsClick(item: BottomSheetRows) {   // для подгрузки  оперделенных данных при выборе категории
+      vm.choosedCategory(item)
     }
 }

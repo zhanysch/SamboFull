@@ -12,6 +12,7 @@ import com.example.sambo.ui.main.ForFragmentActivity
 import com.example.sambo.ui.main.MainActivity
 import com.example.sambo.ui.main.RegistrationOneFragment
 import com.example.sambo.utils.cleanLaunchActivity
+import com.example.sambo.utils.setCornerRadius
 import com.google.android.material.shape.CornerFamily
 import kotlinx.android.synthetic.main.profile_fragment.*
 import java.io.File
@@ -19,7 +20,6 @@ import java.io.File
 class ProfileFragment: BaseUserPhotoFragment() {
 
     override fun resID() = R.layout.profile_fragment
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,7 +33,7 @@ class ProfileFragment: BaseUserPhotoFragment() {
         }
 
         ext_text.setOnClickListener {
-            PreferenceHelper.clear()
+           PreferenceHelper.setIsLogetIn(false)
             cleanLaunchActivity<ForFragmentActivity>()
         }
     }
@@ -43,17 +43,14 @@ class ProfileFragment: BaseUserPhotoFragment() {
         image.setImageBitmap(bitmap)
     }
 
-    private fun makeroundImage() { // метод для обработки image чтоб углы закгруглялись
+    private fun makeroundImage() { // метод для обработки image чтоб углы закгруглялись  // ViewExt
         val radius = resources.getDimension(R.dimen.imageRadius)
-        val shape = image.shapeAppearanceModel.toBuilder()
-            .setTopLeftCorner(CornerFamily.ROUNDED, radius)
-            .setTopRightCorner(CornerFamily.ROUNDED, radius)
-            .setBottomLeftCorner(CornerFamily.ROUNDED, radius)
-            .setBottomRightCorner(CornerFamily.ROUNDED, radius)
-
-            .build()
-
-        image.shapeAppearanceModel = shape
+        image.setCornerRadius(
+            topLeft = radius,
+            topRight = radius,
+            bottomLeft = radius,
+            bottomRight = radius
+        )
     }
 
     private fun alertDialog(){

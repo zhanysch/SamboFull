@@ -24,6 +24,10 @@ class SplashFragment : BaseFragment() {
     private fun selectFragment() {
         if (PreferenceHelper.getIsFirstLaunch()) {
             findNavController().navigate(R.id.action_splashFragment_to_onBoardMainFragment)
+        } else if (
+            !PreferenceHelper.getLogetIn()
+        ){
+            findNavController().navigate(R.id.action_splashFragment_to_registrationOneFragment)
         } else {
             val intent = Intent(activity, MainActivity::class.java)
             startActivity(intent)

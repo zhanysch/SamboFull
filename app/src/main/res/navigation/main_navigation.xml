@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_splashFragment_to_onBoardMainFragment"
             app:destination="@id/onBoardMainFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_registrationOneFragment"
+            app:destination="@id/registrationOneFragment" />
     </fragment>
     <fragment
         android:id="@+id/onBoardMainFragment"

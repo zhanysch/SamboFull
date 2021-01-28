@@ -24,7 +24,7 @@ abstract class BaseDataSource <T>(  /// Т классов из датаклас�
     class Factory<T, D : BaseDataSource<T>>(private val factory: () -> D) :
             DataSource.Factory<Int, T>(){
 
-         private val dataSourceFactoryLiveData = MutableLiveData<BaseDataSource<T>>()  // функция возвращает список из дата класс
+          val dataSourceFactoryLiveData = MutableLiveData<BaseDataSource<T>>()  // функция возвращает список из дата класс
 
          override fun create() = factory().apply { dataSourceFactoryLiveData.postValue(this) }
     }
