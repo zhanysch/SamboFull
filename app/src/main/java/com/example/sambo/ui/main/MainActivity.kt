@@ -6,35 +6,32 @@ import com.example.sambo.R
 import com.example.sambo.ui.bottomnavigation.*
 import com.example.sambo.ui.bottomnavigation.courses.CoursesFragment
 import com.example.sambo.ui.bottomnavigation.profilehelper.ProfileFragment
+import com.example.sambo.utils.ext.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setupBottomNav()
-        setupListeners()
+        setupBottomView()
     }
 
-    private fun setupBottomNav() {
-        val adapter = ViewPagerAdapter(supportFragmentManager)
-        viewPager.adapter = adapter
-        adapter.addFragment(HomeFragment())
-        adapter.addFragment(CompetitionFragment())
-        adapter.addFragment(CoursesFragment())
-        adapter.addFragment(ProfileFragment())
-    }
+    private fun setupBottomView() {
+        val navView = findViewById<BottomNavigationView>(R.id.bottomNav)
 
-    private fun setupListeners() {
-        bottomNav.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.home -> viewPager.currentItem = 0
-                R.id.competition -> viewPager.currentItem = 1
-                R.id.courses -> viewPager.currentItem = 2
-                R.id.profile -> viewPager.currentItem = 3
-            }
+        val navIds = listOf(
+            R.navigation.home,
+            R.navigation.competition,
+            R.navigation.courses,
+            R.navigation.profile
+        )
 
-            return@setOnNavigationItemSelectedListener true
-        }
+        navView.setupWithNavController(
+            navGraphIds = navIds,
+            fragmentManager = supportFragmentManager,
+            containerId = R.id.navView,
+            intent = intent
+        )
     }
 }

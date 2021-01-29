@@ -1,4 +1,4 @@
-package com.example.sambo.utils
+package com.example.sambo.utils.ext
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

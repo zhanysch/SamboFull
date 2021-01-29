@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/newsItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivNews"
+        android:layout_width="@dimen/dp80"
+        android:layout_height="@dimen/dp80"
+        android:layout_marginStart="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp8"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_listing_placeholder"
+        app:layout_constraintEnd_toStartOf="@id/tvNews"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNews"
+        android:layout_width="@dimen/dp0"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginEnd="@dimen/dp20"
+        android:fontFamily="@font/gilroy_medium"
+        android:gravity="left"
+        android:maxLines="3"
+        android:textColor="@color/colorDark"
+        android:textSize="@dimen/sp16"
+        app:layout_constraintBottom_toBottomOf="@id/ivNews"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivNews"
+        app:layout_constraintTop_toTopOf="@id/ivNews" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
