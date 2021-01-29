@@ -7,13 +7,17 @@ import com.example.sambo.data.interactors.SamboInteractorImpl
 import com.example.sambo.data.repository.SamboRepository
 import com.example.sambo.data.repository.SamboRepositoryImpl
 import com.example.sambo.ui.bottomnavigation.courses.CoursesViewModel
+import com.example.sambo.ui.bottomnavigation.home.CollectionsDetailsViewModel
+import com.example.sambo.ui.bottomnavigation.home.HomeViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
 
 val viewModelModule: Module = module {
-   viewModel { CoursesViewModel(get()) }
+    viewModel { CoursesViewModel(get()) }
+    viewModel { HomeViewModel(get()) }
+    viewModel { CollectionsDetailsViewModel(get()) }
 }
 
 

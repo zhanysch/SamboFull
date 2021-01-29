@@ -1,6 +1,7 @@
-package com.example.sambo.ui.bottomnavigation
+package com.example.sambo.ui.bottomnavigation.competition
 
 import com.example.sambo.R
+import com.example.sambo.ui.bottomnavigation.BaseFragment
 
 class CompetitionFragment: BaseFragment() {
 
