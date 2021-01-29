@@ -19,7 +19,7 @@ object DiffUtilsCards {
                     && oldItem.preview == newItem.preview
                     && oldItem.rank == newItem.rank
                     && oldItem.title == newItem.title
-                    && oldItem.updated_at == newItem.updated_at
+
         }
 
         override fun areContentsTheSame(oldItem: RowsItem, newItem: RowsItem): Boolean {

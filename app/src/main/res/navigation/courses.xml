@@ -6,5 +6,19 @@
     <fragment
         android:id="@+id/coursesFragment"
         android:name="com.example.sambo.ui.bottomnavigation.courses.CoursesFragment"
-        android:label="CoursesFragment" />
+        android:label="CoursesFragment" >
+        <action
+            android:id="@+id/action_coursesFragment_to_newsDetailsFragment"
+            app:destination="@id/coursesDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coursesDetailsFragment"
+        android:name="com.example.sambo.ui.bottomnavigation.home.NewsDetailsFragment"
+        android:label="NewsDetailsFragment" >
+        <argument
+            android:name="details"
+            app:argType="com.example.sambo.data.model.cards.RowsItem"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
 </navigation>
