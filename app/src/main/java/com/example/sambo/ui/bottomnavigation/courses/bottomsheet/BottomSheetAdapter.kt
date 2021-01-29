@@ -10,9 +10,11 @@ import com.example.sambo.R
 import com.example.sambo.data.modelBottomSheet.BottomSheetRows
 import kotlinx.android.synthetic.main.bottom_sheethelper.view.*
 
-class BottomSheetAdapter(private val listner: ItemListener): ListAdapter<BottomSheetRows,BottomViewHolder>(DiffUtillBottom()) {
+class BottomSheetAdapter(private val listner: ItemListener) :
+    ListAdapter<BottomSheetRows, BottomViewHolder>(DiffUtillBottom()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BottomViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.bottom_sheethelper,parent,false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.bottom_sheethelper, parent, false)
         return BottomViewHolder(view)
     }
 
@@ -24,9 +26,9 @@ class BottomSheetAdapter(private val listner: ItemListener): ListAdapter<BottomS
     }
 }
 
-class  DiffUtillBottom: DiffUtil.ItemCallback<BottomSheetRows>(){
+class DiffUtillBottom : DiffUtil.ItemCallback<BottomSheetRows>() {
     override fun areItemsTheSame(oldItem: BottomSheetRows, newItem: BottomSheetRows): Boolean {
-        return  oldItem.hashCode() == newItem.hashCode()
+        return oldItem.hashCode() == newItem.hashCode()
     }
 
     override fun areContentsTheSame(oldItem: BottomSheetRows, newItem: BottomSheetRows): Boolean {
@@ -34,7 +36,7 @@ class  DiffUtillBottom: DiffUtil.ItemCallback<BottomSheetRows>(){
     }
 }
 
-class BottomViewHolder(view : View) : RecyclerView.ViewHolder(view){
+class BottomViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun bind(
         item: BottomSheetRows
 
