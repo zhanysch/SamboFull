@@ -2,19 +2,18 @@ package com.example.sambo.data.interactors
 
 import com.example.sambo.data.model.advice.AdviceOfDayModel
 import com.example.sambo.data.model.cards.CardsModel
+import com.example.sambo.data.model.cards.RowsItem
 import com.example.sambo.data.model.news.NewsModel
+
 import com.example.sambo.data.modelBottomSheet.BottomSheetModel
-import com.example.sambo.data.modelBottomSheet.BottomSheetRows
 import com.example.sambo.data.modelcourses.MainCourseModel
-import com.example.sambo.data.modelcourses.Rows
 import com.example.sambo.data.remote.CoursesService
-import retrofit2.Call
 import retrofit2.Response
 
 interface SamboInteractor{
-    suspend fun loadData(limit: Int, page: Int) : MainCourseModel<Rows>
+    suspend fun loadData(limit: Int, page: Int) : MainCourseModel<RowsItem>
     suspend fun loadCategory(limit: Int,page: Int)  : Response<BottomSheetModel>
-    suspend fun loadDataWithCategoryId(limit: Int,page: Int,categoryId: Int) : MainCourseModel<Rows>  // для подргузк данных при клике категории
+    suspend fun loadDataWithCategoryId(limit: Int,page: Int,categoryId: Int) : MainCourseModel<RowsItem>  // для подргузк данных при клике категории
     suspend fun loadCards(limit: Int, page: Int): Response<CardsModel>
     suspend fun loadCollections(limit: Int, page: Int): Response<CardsModel>
     suspend fun loadNews(limit: Int, page: Int): Response<NewsModel>
@@ -24,7 +23,7 @@ interface SamboInteractor{
 
 
 class SamboInteractorImpl (private val service : CoursesService) : SamboInteractor{
-    override suspend fun loadData(limit: Int, page: Int): MainCourseModel<Rows> {
+    override suspend fun loadData(limit: Int, page: Int): MainCourseModel<RowsItem> {
         return service.getCourses(limit = limit, page = page,order = "{\"id\":\"asc\"}")
     }
 
@@ -36,7 +35,7 @@ class SamboInteractorImpl (private val service : CoursesService) : SamboInteract
         limit: Int,
         page: Int,
         categoryId: Int
-    ): MainCourseModel<Rows> {
+    ): MainCourseModel<RowsItem> {
        return service.getCategoryId(limit = limit, page = page,order = "{\"id\":\"asc\"}",categoryId = categoryId)
     }
     override suspend fun loadCards(limit: Int, page: Int): Response<CardsModel> {

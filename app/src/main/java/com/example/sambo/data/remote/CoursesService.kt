@@ -2,10 +2,10 @@ package com.example.sambo.data.remote
 
 import com.example.sambo.data.model.advice.AdviceOfDayModel
 import com.example.sambo.data.model.cards.CardsModel
+import com.example.sambo.data.model.cards.RowsItem
 import com.example.sambo.data.model.news.NewsModel
 import com.example.sambo.data.modelBottomSheet.BottomSheetModel
 import com.example.sambo.data.modelcourses.MainCourseModel
-import com.example.sambo.data.modelcourses.Rows
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -17,7 +17,7 @@ interface CoursesService {
         @Query("limit") limit: Int,  // для пагинации лимит сколько можно загружать
         @Query("page") page: Int ,
         @Query("order") order: String
-    ): MainCourseModel<Rows>
+    ): MainCourseModel<RowsItem>
 
     //https://api.sambo.beta.trinitydigital.ru/ api/v1/educational_materials ? limit=20 & page=1 & category_id=1 & order={"id":"asc"}
 
@@ -36,7 +36,7 @@ interface CoursesService {
         @Query("page") page: Int ,
         @Query("order") order: String,
         @Query("category_id") categoryId: Int   // "category_id") categoryId: Int   добавил дополнит, скопиров getCourses для подгрузк данных при клике
-    ): MainCourseModel<Rows>
+    ): MainCourseModel<RowsItem>
 
     @GET("api/v1/main_materials")
     suspend fun loadCards(

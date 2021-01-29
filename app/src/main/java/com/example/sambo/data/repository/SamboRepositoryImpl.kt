@@ -5,12 +5,14 @@ import com.example.sambo.data.modelcourses.Rows
 import com.example.sambo.data.interactors.SamboInteractor
 import com.example.sambo.data.model.advice.AdviceOfDayModel
 import com.example.sambo.data.model.cards.CardsModel
+import com.example.sambo.data.model.cards.RowsItem
 import com.example.sambo.data.model.news.NewsModel
+
 import com.example.sambo.data.modelBottomSheet.BottomSheetModel
 import retrofit2.Response
 
 interface SamboRepository {
-    suspend fun loadData(limit: Int, page: Int,categoryId: Int) : MainCourseModel<Rows>
+    suspend fun loadData(limit: Int, page: Int,categoryId: Int) : MainCourseModel<RowsItem>
     suspend fun loadCategory(limit: Int,page: Int)  : Response<BottomSheetModel>
     suspend fun loadCards(limit: Int, page: Int): Response<CardsModel>
     suspend fun loadCollections(limit: Int, page: Int): Response<CardsModel>
@@ -20,7 +22,7 @@ interface SamboRepository {
 }
 class SamboRepositoryImpl(private val network : SamboInteractor) : SamboRepository {
 
-    override suspend fun loadData(limit: Int, page: Int,categoryId: Int): MainCourseModel<Rows> {    // для подргузк данных при клике категории
+    override suspend fun loadData(limit: Int, page: Int,categoryId: Int): MainCourseModel<RowsItem> {    // для подргузк данных при клике категории
         return if (categoryId == -1){   //-1 значен по умолчанию для подгрузки  оперделенных данных при выборе категории
             network.loadData(limit=limit,page = page)
         } else {
