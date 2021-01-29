@@ -5,15 +5,11 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
-import androidx.navigation.fragment.findNavController
 import com.example.sambo.R
 import com.example.sambo.data.local.PreferenceHelper
 import com.example.sambo.ui.main.ForFragmentActivity
-import com.example.sambo.ui.main.MainActivity
-import com.example.sambo.ui.main.RegistrationOneFragment
-import com.example.sambo.utils.cleanLaunchActivity
-import com.example.sambo.utils.setCornerRadius
-import com.google.android.material.shape.CornerFamily
+import com.example.sambo.utils.ext.cleanLaunchActivity
+import com.example.sambo.utils.ext.setCornerRadius
 import kotlinx.android.synthetic.main.profile_fragment.*
 import java.io.File
 

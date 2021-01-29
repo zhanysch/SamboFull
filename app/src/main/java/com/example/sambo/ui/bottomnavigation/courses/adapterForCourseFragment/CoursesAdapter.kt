@@ -7,7 +7,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sambo.R
 import com.example.sambo.data.modelcourses.Rows
-import com.example.sambo.utils.setCornerRadius
+import com.example.sambo.utils.ext.setCornerRadius
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_helper.view.*
 

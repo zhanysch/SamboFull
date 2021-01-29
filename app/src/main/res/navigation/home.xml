@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.sambo.ui.bottomnavigation.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_newsDetailsFragment"
+            app:destination="@id/newsDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_collectionsDetailsFragment"
+            app:destination="@id/collectionsDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_adviceDetailsFragment"
+            app:destination="@id/adviceDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetailsFragment"
+        android:name="com.example.sambo.ui.bottomnavigation.home.NewsDetailsFragment"
+        android:label="NewsDetailsFragment" >
+        <argument
+            android:name="details"
+            app:argType="com.example.sambo.data.model.cards.RowsItem"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/collectionsDetailsFragment"
+        android:name="com.example.sambo.ui.bottomnavigation.home.CollectionsDetailsFragment"
+        android:label="CollectionsDetailsFragment" >
+        <argument
+            android:name="collections"
+            app:argType="com.example.sambo.data.model.cards.RowsItem"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_collectionsDetailsFragment_to_newsDetailsFragment"
+            app:destination="@id/newsDetailsFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/adviceDetailsFragment"
+        android:name="com.example.sambo.ui.bottomnavigation.home.AdviceOfDayFullScreenDialog"
+        android:label="AdviceDetailsFragment" >
+        <argument
+            android:name="advice"
+            app:argType="com.example.sambo.data.model.advice.AdviceOfDayModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </dialog>
+</navigation>

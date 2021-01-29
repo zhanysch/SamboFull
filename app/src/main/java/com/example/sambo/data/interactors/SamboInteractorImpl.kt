@@ -1,5 +1,8 @@
 package com.example.sambo.data.interactors
 
+import com.example.sambo.data.model.advice.AdviceOfDayModel
+import com.example.sambo.data.model.cards.CardsModel
+import com.example.sambo.data.model.news.NewsModel
 import com.example.sambo.data.modelBottomSheet.BottomSheetModel
 import com.example.sambo.data.modelBottomSheet.BottomSheetRows
 import com.example.sambo.data.modelcourses.MainCourseModel
@@ -12,7 +15,11 @@ interface SamboInteractor{
     suspend fun loadData(limit: Int, page: Int) : MainCourseModel<Rows>
     suspend fun loadCategory(limit: Int,page: Int)  : Response<BottomSheetModel>
     suspend fun loadDataWithCategoryId(limit: Int,page: Int,categoryId: Int) : MainCourseModel<Rows>  // для подргузк данных при клике категории
-
+    suspend fun loadCards(limit: Int, page: Int): Response<CardsModel>
+    suspend fun loadCollections(limit: Int, page: Int): Response<CardsModel>
+    suspend fun loadNews(limit: Int, page: Int): Response<NewsModel>
+    suspend fun loadSelectionsData(limit: Int, selectionId : Int, page: Int): Response<CardsModel>
+    suspend fun adviceOfDay(): AdviceOfDayModel
 }
 
 
@@ -32,6 +39,27 @@ class SamboInteractorImpl (private val service : CoursesService) : SamboInteract
     ): MainCourseModel<Rows> {
        return service.getCategoryId(limit = limit, page = page,order = "{\"id\":\"asc\"}",categoryId = categoryId)
     }
+    override suspend fun loadCards(limit: Int, page: Int): Response<CardsModel> {
+        return service.loadCards(limit = limit, page = page, order = "{\"rank\":\"asc\"}")
+    }
 
+    override suspend fun loadCollections(limit: Int, page: Int): Response<CardsModel> {
+        return service.loadCollections(limit = limit, page = page, order = "{\"rank\":\"asc\"}")
+    }
 
+    override suspend fun loadNews(limit: Int, page: Int): Response<NewsModel> {
+        return service.loadNews(limit = limit, page = page, order = "{\"created_at\":\"asc\"}")
+    }
+
+    override suspend fun loadSelectionsData(
+        limit: Int,
+        selectionId: Int,
+        page: Int
+    ): Response<CardsModel> {
+        return service.loadSelectionsData(limit, selectionId, page)
+    }
+
+    override suspend fun adviceOfDay(): AdviceOfDayModel {
+        return service.adviceOfDay()
+    }
 }
