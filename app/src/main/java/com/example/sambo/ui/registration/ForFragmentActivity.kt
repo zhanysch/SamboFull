@@ -1,4 +1,4 @@
-package com.example.sambo.ui.main
+package com.example.sambo.ui.registration
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

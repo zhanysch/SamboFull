@@ -1,4 +1,4 @@
-package com.example.sambo.ui.main
+package com.example.sambo.ui.registration
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.sambo.R
 import com.example.sambo.data.common.BaseFragment
 import com.example.sambo.data.local.PreferenceHelper
+import com.example.sambo.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_registone.*
 
 class RegistrationOneFragment : BaseFragment() {

@@ -1,4 +1,4 @@
-package com.example.sambo.ui.bottomnavigation.home
+package com.example.sambo.ui.collectionsdetails
 
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +12,11 @@ import com.example.sambo.utils.ext.setCornerRadius
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_main_collections.view.*
 
-
-class CollectionsAdapter(private val listener: (item: RowsItem) -> Unit): ListAdapter<RowsItem, CollectionsViewHolder>(DiffUtilsCards.diffUtilCards) {
+class CollectionsAdapter(private val listener: (item: RowsItem) -> Unit) :
+    ListAdapter<RowsItem, CollectionsViewHolder>(DiffUtilsCards.diffUtilCards) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectionsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_main_collections,parent,false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_main_collections, parent, false)
         return CollectionsViewHolder(view)
     }
 
@@ -24,7 +25,7 @@ class CollectionsAdapter(private val listener: (item: RowsItem) -> Unit): ListAd
     }
 }
 
-class CollectionsViewHolder(view: View): RecyclerView.ViewHolder(view){
+class CollectionsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun bind(item: RowsItem?, listener: (item: RowsItem) -> Unit) {
         itemView.tvDescriptions.text = item?.title.toString()
         itemView.collectionsCard.setOnClickListener {

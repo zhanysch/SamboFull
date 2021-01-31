@@ -9,7 +9,7 @@ import com.example.sambo.R
 import com.example.sambo.data.model.OnBoardModel
 import kotlinx.android.synthetic.main.fragment_onboard.*
 
-class OnBoardFragment: Fragment() {
+class OnBoardFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

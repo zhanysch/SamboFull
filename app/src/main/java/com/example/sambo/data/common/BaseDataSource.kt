@@ -1,6 +1,6 @@
 package com.example.sambo.data.common
 
-import com.example.sambo.data.modelcourses.MainCourseModel
+import com.example.sambo.data.model.modelcourses.MainCourseModel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource

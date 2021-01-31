@@ -6,12 +6,12 @@ import com.example.sambo.data.model.news.RowsItem
 
 object DiffUtilsNews {
 
-    val diffUtilsNews = object: DiffUtil.ItemCallback<RowsItem>(){
+    val diffUtilsNews = object : DiffUtil.ItemCallback<RowsItem>() {
         override fun areItemsTheSame(oldItem: RowsItem, newItem: RowsItem): Boolean {
             return oldItem.comments_count == newItem.comments_count
-                    && oldItem.content  == newItem.content
+                    && oldItem.content == newItem.content
                     && oldItem.created_at == newItem.created_at
-                    && oldItem.email== newItem.email
+                    && oldItem.email == newItem.email
                     && oldItem.id == newItem.id
                     && oldItem.preview == newItem.preview
                     && oldItem.status_code == newItem.status_code

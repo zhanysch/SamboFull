@@ -4,8 +4,8 @@ import com.example.sambo.data.model.advice.AdviceOfDayModel
 import com.example.sambo.data.model.cards.CardsModel
 import com.example.sambo.data.model.cards.RowsItem
 import com.example.sambo.data.model.news.NewsModel
-import com.example.sambo.data.modelBottomSheet.BottomSheetModel
-import com.example.sambo.data.modelcourses.MainCourseModel
+import com.example.sambo.data.model.modelBottomSheet.BottomSheetModel
+import com.example.sambo.data.model.modelcourses.MainCourseModel
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

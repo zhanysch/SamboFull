@@ -1,5 +1,6 @@
 package com.example.sambo.data.remote
 
+import com.example.sambo.BuildConfig.baseUrl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -11,7 +12,7 @@ object RetrofitBuilder {
 
   fun buildRetrofit(): SamboService {
        return Retrofit.Builder()
-            .baseUrl("https://api.sambo.beta.trinitydigital.ru/")
+            .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
            .client(getClient())
            .build()

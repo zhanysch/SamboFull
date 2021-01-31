@@ -5,14 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 
-inline fun <reified T: AppCompatActivity> AppCompatActivity.launchActivity() {
-    this.startActivity(Intent(this,T::class.java))
-
+inline fun <reified T : AppCompatActivity> AppCompatActivity.launchActivity() {
+    this.startActivity(Intent(this, T::class.java))
 }
-inline fun <reified T: AppCompatActivity> FragmentActivity.launchActivity() {
-    this.startActivity(Intent(this,T::class.java)) }
 
-
+inline fun <reified T : AppCompatActivity> FragmentActivity.launchActivity() {
+    this.startActivity(Intent(this, T::class.java))
+}
 
 inline fun <reified T> Fragment.cleanLaunchActivity() {
     this.activity?.finish()

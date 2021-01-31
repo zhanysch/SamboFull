@@ -1,7 +1,6 @@
 package com.example.sambo.data.model.news
 
-import com.example.sambo.data.modelcourses.Categories
-import com.google.gson.annotations.SerializedName
+import com.example.sambo.data.model.modelcourses.Categories
 
 data class RowsItem(
     val comments_count: Int,

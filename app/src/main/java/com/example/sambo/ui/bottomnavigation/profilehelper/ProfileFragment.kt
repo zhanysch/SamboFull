@@ -7,15 +7,15 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.example.sambo.R
 import com.example.sambo.data.local.PreferenceHelper
-import com.example.sambo.ui.main.ForFragmentActivity
+import com.example.sambo.ui.registration.ForFragmentActivity
 import com.example.sambo.utils.ext.cleanLaunchActivity
 import com.example.sambo.utils.ext.setCornerRadius
-import kotlinx.android.synthetic.main.profile_fragment.*
+import kotlinx.android.synthetic.main.fragment_profile.*
 import java.io.File
 
 class ProfileFragment: BaseUserPhotoFragment() {
 
-    override fun resID() = R.layout.profile_fragment
+    override fun resID() = R.layout.fragment_profile
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sambo.R
-import com.example.sambo.data.modelBottomSheet.BottomSheetRows
+import com.example.sambo.data.model.modelBottomSheet.BottomSheetRows
 import kotlinx.android.synthetic.main.bottom_sheethelper.view.*
 
 class BottomSheetAdapter(private val listner: ItemListener) :

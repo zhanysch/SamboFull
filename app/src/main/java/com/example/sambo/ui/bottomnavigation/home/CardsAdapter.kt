@@ -34,7 +34,8 @@ class CardsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             .error(R.drawable.ic_listing_placeholder)
             .into(itemView.ivCards)
 
-        itemView.ivCards.transitionName = itemView.context.resources.getString(R.string.image_transition, item?.id)
+        itemView.ivCards.transitionName =
+            itemView.context.resources.getString(R.string.image_transition, item?.id)
 
         itemView.mainCard.setOnClickListener {
             item?.let { it1 -> listener.invoke(it1, itemView.ivCards) }

@@ -12,6 +12,8 @@ import com.example.sambo.R
 import com.example.sambo.data.common.BaseFragment
 import com.example.sambo.data.model.advice.AdviceOfDayModel
 import com.example.sambo.data.model.cards.RowsItem
+import com.example.sambo.ui.collectionsdetails.CollectionsAdapter
+import com.example.sambo.ui.newsdetails.NewsAdapter
 import com.example.sambo.utils.decorators.GravitySnapHelper
 import com.example.sambo.utils.decorators.ItemOffsetDecoration
 import kotlinx.android.synthetic.main.fragment_home.*

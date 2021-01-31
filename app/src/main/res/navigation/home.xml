@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/newsDetailsFragment"
-        android:name="com.example.sambo.ui.bottomnavigation.home.NewsDetailsFragment"
+        android:name="com.example.sambo.ui.newsdetails.NewsDetailsFragment"
         android:label="NewsDetailsFragment" >
         <argument
             android:name="details"
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/collectionsDetailsFragment"
-        android:name="com.example.sambo.ui.bottomnavigation.home.CollectionsDetailsFragment"
+        android:name="com.example.sambo.ui.collectionsdetails.CollectionsDetailsFragment"
         android:label="CollectionsDetailsFragment" >
         <argument
             android:name="collections"
@@ -42,7 +42,7 @@
     </fragment>
     <dialog
         android:id="@+id/adviceDetailsFragment"
-        android:name="com.example.sambo.ui.bottomnavigation.home.AdviceOfDayFullScreenDialog"
+        android:name="com.example.sambo.ui.adviceofday.AdviceOfDayFullScreenDialog"
         android:label="AdviceDetailsFragment" >
         <argument
             android:name="advice"

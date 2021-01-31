@@ -1,4 +1,4 @@
-package com.example.sambo.data.modelBottomSheet
+package com.example.sambo.data.model.modelBottomSheet
 
 import com.google.gson.annotations.SerializedName
 

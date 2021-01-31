@@ -8,11 +8,8 @@ import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import com.example.sambo.R
 
-
 abstract class BaseFullScreenDialog : DialogFragment() {
-
     abstract fun getLayoutId(): Int
-
     override fun getTheme(): Int {
         return R.style.FullScreenDialogTheme
     }

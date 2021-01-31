@@ -1,4 +1,4 @@
-package com.example.sambo.data.modelBottomSheet
+package com.example.sambo.data.model.modelcourses
 
 import com.google.gson.annotations.SerializedName
 
@@ -14,8 +14,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class BottomSheetModel (
+data class Rows (
 
-	@SerializedName("rows") val rows : List<BottomSheetRows>,
-	@SerializedName("total_count") val total_count : Int
+	@SerializedName("id") val id : Int,
+	@SerializedName("material_type") val material_type : String,
+	@SerializedName("title") val title : String,
+	@SerializedName("description") val description : String,
+	@SerializedName("content") val content : String,
+	@SerializedName("rank") val rank : Int,
+	@SerializedName("duration") val duration : String,
+	@SerializedName("categories_list") val categories_list : String,
+	@SerializedName("created_at") val created_at : String,
+	@SerializedName("updated_at") val updated_at : String,
+	@SerializedName("document") val document : String,
+	@SerializedName("preview") val preview : String,
+	@SerializedName("comments_count") val comments_count : Int,
+	@SerializedName("categories") val categories : List<Categories>
 )

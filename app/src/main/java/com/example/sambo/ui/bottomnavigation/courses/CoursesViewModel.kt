@@ -2,14 +2,14 @@ package com.example.sambo.ui.bottomnavigation.courses
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.sambo.data.modelcourses.MainCourseModel
+import com.example.sambo.data.model.modelcourses.MainCourseModel
 
 import androidx.lifecycle.viewModelScope
 import com.example.sambo.data.common.BaseDataSource
 import com.example.sambo.data.common.BasePagedViewModel
 import com.example.sambo.data.model.cards.RowsItem
 
-import com.example.sambo.data.modelBottomSheet.BottomSheetRows
+import com.example.sambo.data.model.modelBottomSheet.BottomSheetRows
 import com.example.sambo.data.repository.SamboRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch

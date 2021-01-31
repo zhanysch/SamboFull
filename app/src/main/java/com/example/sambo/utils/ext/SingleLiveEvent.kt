@@ -1,4 +1,4 @@
-package com.example.sambo.utils
+package com.example.sambo.utils.ext
 
 /*
  *  Copyright 2017 Google Inc.

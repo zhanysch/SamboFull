@@ -13,11 +13,11 @@ fun Context.dpToPx(dimens: Float?): Int {
 }
 
 fun ShapeableImageView.setCornerRadius(
-    topRight : Float = 0f,
-    topLeft : Float = 0f,
+    topRight: Float = 0f,
+    topLeft: Float = 0f,
     bottomRight: Float = 0f,
-    bottomLeft : Float = 0f
-){
+    bottomLeft: Float = 0f
+) {
     this.shapeAppearanceModel = this.shapeAppearanceModel
         .toBuilder()
         .setTopLeftCorner(CornerFamily.ROUNDED, topLeft)

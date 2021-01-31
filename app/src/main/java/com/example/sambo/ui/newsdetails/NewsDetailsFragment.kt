@@ -1,4 +1,4 @@
-package com.example.sambo.ui.bottomnavigation.home
+package com.example.sambo.ui.newsdetails
 
 import android.os.Bundle
 import android.transition.TransitionInflater
@@ -10,7 +10,6 @@ import com.example.sambo.data.common.BaseFragment
 import com.example.sambo.utils.ext.setCornerRadius
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_news_details.*
-
 
 class NewsDetailsFragment : BaseFragment() {
     private val args: NewsDetailsFragmentArgs by navArgs()

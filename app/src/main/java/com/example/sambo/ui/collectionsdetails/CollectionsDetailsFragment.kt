@@ -1,4 +1,4 @@
-package com.example.sambo.ui.bottomnavigation.home
+package com.example.sambo.ui.collectionsdetails
 
 import android.os.Bundle
 import android.view.View
@@ -15,14 +15,14 @@ import com.example.sambo.utils.ext.toTransitionGroup
 import kotlinx.android.synthetic.main.fragment_collections_details.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-
 class CollectionsDetailsFragment : BaseFragment() {
     override fun resID() = R.layout.fragment_collections_details
     private val vm by sharedViewModel<CollectionsDetailsViewModel>()
     private val args: CollectionsDetailsFragmentArgs by navArgs()
-    private val collectionsDetailsAdapter by lazy {CollectionsDetailsAdapter() { item, image ->
-        navigateToNewsDetails(item, image)
-    }
+    private val collectionsDetailsAdapter by lazy {
+        CollectionsDetailsAdapter() { item, image ->
+            navigateToNewsDetails(item, image)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -72,7 +72,10 @@ class CollectionsDetailsFragment : BaseFragment() {
 
     private fun navigateToNewsDetails(data: RowsItem, image: ImageView) {
         val extras = FragmentNavigatorExtras(image.toTransitionGroup())
-        val destination = CollectionsDetailsFragmentDirections.actionCollectionsDetailsFragmentToNewsDetailsFragment(data)
+        val destination =
+            CollectionsDetailsFragmentDirections.actionCollectionsDetailsFragmentToNewsDetailsFragment(
+                data
+            )
         findNavController().navigate(destination, extras)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.sambo.data.modelcourses
+package com.example.sambo.data.model.modelcourses
 
 import com.google.gson.annotations.SerializedName
 

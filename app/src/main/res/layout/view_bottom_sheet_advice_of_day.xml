@@ -26,20 +26,20 @@
             android:text="Совет дня"
             android:textColor="@color/colorBlue"
             android:textSize="@dimen/sp30"
-            app:layout_constraintVertical_bias="0.3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3" />
 
         <ImageView
             android:id="@+id/ivAdvice"
-            android:scaleType="fitEnd"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/topImageGuideLine"
-            app:layout_constraintBottom_toTopOf="@id/bottomImageGuideLine"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:src="@drawable/ic_bg_advice" />
+            android:scaleType="fitEnd"
+            android:src="@drawable/ic_bg_advice"
+            app:layout_constraintBottom_toTopOf="@id/bottomImageGuideLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/topImageGuideLine" />
 
         <TextView
             android:id="@+id/tvAdviceDescription"

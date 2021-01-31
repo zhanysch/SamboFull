@@ -1,4 +1,4 @@
-package com.example.sambo.ui.bottomnavigation.home
+package com.example.sambo.ui.adviceofday
 
 import android.os.Bundle
 import android.view.View

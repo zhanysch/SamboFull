@@ -5,11 +5,10 @@ import com.example.sambo.data.model.cards.CardsModel
 import com.example.sambo.data.model.cards.RowsItem
 import com.example.sambo.data.model.news.NewsModel
 
-import com.example.sambo.data.modelBottomSheet.BottomSheetModel
-import com.example.sambo.data.modelcourses.MainCourseModel
+import com.example.sambo.data.model.modelBottomSheet.BottomSheetModel
+import com.example.sambo.data.model.modelcourses.MainCourseModel
 import com.example.sambo.data.remote.SamboService
 import retrofit2.Response
-
 
 interface SamboInteractor{
     suspend fun loadData(limit: Int, page: Int) : MainCourseModel<RowsItem>

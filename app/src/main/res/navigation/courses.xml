@@ -13,7 +13,7 @@
     </fragment>
     <fragment
         android:id="@+id/coursesDetailsFragment"
-        android:name="com.example.sambo.ui.bottomnavigation.home.NewsDetailsFragment"
+        android:name="com.example.sambo.ui.newsdetails.NewsDetailsFragment"
         android:label="NewsDetailsFragment" >
         <argument
             android:name="details"
