@@ -9,13 +9,13 @@ import java.util.concurrent.TimeUnit
 object RetrofitBuilder {
 
 
-  fun buildRetrofit(): CoursesService {
+  fun buildRetrofit(): SamboService {
        return Retrofit.Builder()
             .baseUrl("https://api.sambo.beta.trinitydigital.ru/")
             .addConverterFactory(GsonConverterFactory.create())
            .client(getClient())
            .build()
-            .create(CoursesService::class.java)
+            .create(SamboService::class.java)
 
         //https://api.sambo.beta.trinitydigital.ru/api/v1/ categories?limit=20&page=1&order={%22rank%22:%22asc%22}
 

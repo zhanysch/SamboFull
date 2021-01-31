@@ -7,8 +7,9 @@ import com.example.sambo.data.model.news.NewsModel
 
 import com.example.sambo.data.modelBottomSheet.BottomSheetModel
 import com.example.sambo.data.modelcourses.MainCourseModel
-import com.example.sambo.data.remote.CoursesService
+import com.example.sambo.data.remote.SamboService
 import retrofit2.Response
+
 
 interface SamboInteractor{
     suspend fun loadData(limit: Int, page: Int) : MainCourseModel<RowsItem>
@@ -21,8 +22,7 @@ interface SamboInteractor{
     suspend fun adviceOfDay(): AdviceOfDayModel
 }
 
-
-class SamboInteractorImpl (private val service : CoursesService) : SamboInteractor{
+class SamboInteractorImpl (private val service : SamboService) : SamboInteractor{
     override suspend fun loadData(limit: Int, page: Int): MainCourseModel<RowsItem> {
         return service.getCourses(limit = limit, page = page,order = "{\"id\":\"asc\"}")
     }

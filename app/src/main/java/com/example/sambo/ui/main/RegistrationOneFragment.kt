@@ -1,17 +1,16 @@
 package com.example.sambo.ui.main
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.example.sambo.R
+import com.example.sambo.data.common.BaseFragment
 import com.example.sambo.data.local.PreferenceHelper
 import kotlinx.android.synthetic.main.activity_registone.*
 
 class RegistrationOneFragment : BaseFragment() {
-    override fun getviewId() = R.layout.activity_registone
-
+    override fun resID() = R.layout.activity_registone
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,5 +28,4 @@ class RegistrationOneFragment : BaseFragment() {
             startActivity(intent)
         }
     }
-
 }

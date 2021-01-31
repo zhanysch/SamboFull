@@ -5,9 +5,9 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.sambo.R
+import com.example.sambo.data.common.BaseFragment
 import com.example.sambo.data.model.cards.RowsItem
 import com.example.sambo.data.modelBottomSheet.BottomSheetRows
-import com.example.sambo.ui.bottomnavigation.BaseFragment
 import com.example.sambo.ui.bottomnavigation.courses.adapterForCourseFragment.CoursesAdapter
 import com.example.sambo.ui.bottomnavigation.courses.bottomsheet.BottomSheet
 import com.example.sambo.ui.bottomnavigation.courses.bottomsheet.ItemListener

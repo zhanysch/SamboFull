@@ -6,11 +6,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import com.example.sambo.R
+import com.example.sambo.data.common.BaseFragment
 import com.example.sambo.data.local.PreferenceHelper
 import kotlinx.android.synthetic.main.activity_regist.*
 
-class RegistrationTwoFragment :BaseFragment(){
-    override fun getviewId() = R.layout.activity_regist
+class RegistrationTwoFragment : BaseFragment(){
+    override fun resID() = R.layout.activity_regist
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupListeners()
@@ -37,5 +39,4 @@ class RegistrationTwoFragment :BaseFragment(){
 
         }
     }
-
 }

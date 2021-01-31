@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import com.example.sambo.data.modelcourses.MainCourseModel
 
 import androidx.lifecycle.viewModelScope
-import com.example.sambo.data.commonpagination.BaseDataSource
-import com.example.sambo.data.commonpagination.BasePagedViewModel
+import com.example.sambo.data.common.BaseDataSource
+import com.example.sambo.data.common.BasePagedViewModel
 import com.example.sambo.data.model.cards.RowsItem
 
 import com.example.sambo.data.modelBottomSheet.BottomSheetRows

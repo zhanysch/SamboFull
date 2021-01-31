@@ -136,7 +136,7 @@
                     app:layout_constraintTop_toBottomOf="@id/recyclerViewCollections" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerviewNews"
+                    android:id="@+id/recyclerViewNews"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp20"
@@ -159,7 +159,7 @@
                     android:textSize="@dimen/sp16"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/recyclerviewNews" />
+                    app:layout_constraintTop_toBottomOf="@id/recyclerViewNews" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

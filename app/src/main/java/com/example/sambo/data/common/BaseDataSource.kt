@@ -1,4 +1,4 @@
-package com.example.sambo.data.commonpagination
+package com.example.sambo.data.common
 
 import com.example.sambo.data.modelcourses.MainCourseModel
 import android.util.Log

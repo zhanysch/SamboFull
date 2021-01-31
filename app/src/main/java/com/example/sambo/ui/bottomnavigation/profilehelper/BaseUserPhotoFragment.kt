@@ -8,10 +8,8 @@ import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
-import com.example.sambo.SamboApp
-import com.example.sambo.ui.bottomnavigation.BaseFragment
+import com.example.sambo.data.common.BaseFragment
 import permissions.dispatcher.NeedsPermission
 import permissions.dispatcher.RuntimePermissions
 import java.io.File
@@ -19,7 +17,6 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.io.InputStream
 import java.util.*
-import java.util.jar.Manifest
 
 @RuntimePermissions  // этот класс работает с permissions
 abstract  class BaseUserPhotoFragment : BaseFragment(){

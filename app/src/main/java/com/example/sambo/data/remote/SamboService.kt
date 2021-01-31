@@ -10,7 +10,7 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface CoursesService {
+interface SamboService {
 
     @GET("api/v1/educational_materials")
    suspend fun getCourses(

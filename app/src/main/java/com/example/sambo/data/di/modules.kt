@@ -1,6 +1,6 @@
 package com.example.sambo.data.di
 
-import com.example.sambo.data.remote.CoursesService
+import com.example.sambo.data.remote.SamboService
 import com.example.sambo.data.remote.RetrofitBuilder
 import com.example.sambo.data.interactors.SamboInteractor
 import com.example.sambo.data.interactors.SamboInteractorImpl
@@ -20,13 +20,12 @@ val viewModelModule: Module = module {
     viewModel { CollectionsDetailsViewModel(get()) }
 }
 
-
 val repositoryModule: Module = module {
     single<SamboRepository> { SamboRepositoryImpl(get()) }
 }
 
 val apiModule: Module = module {
-    single<CoursesService> { RetrofitBuilder.buildRetrofit() }
+    single<SamboService> { RetrofitBuilder.buildRetrofit() }
     single<SamboInteractor> { SamboInteractorImpl(get()) }
 }
 

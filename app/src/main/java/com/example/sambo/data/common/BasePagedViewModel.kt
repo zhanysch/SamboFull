@@ -1,4 +1,4 @@
-package com.example.sambo.data.commonpagination
+package com.example.sambo.data.common
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
