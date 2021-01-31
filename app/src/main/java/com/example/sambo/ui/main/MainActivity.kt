@@ -3,12 +3,8 @@ package com.example.sambo.ui.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sambo.R
-import com.example.sambo.ui.bottomnavigation.*
-import com.example.sambo.ui.bottomnavigation.courses.CoursesFragment
-import com.example.sambo.ui.bottomnavigation.profilehelper.ProfileFragment
 import com.example.sambo.utils.ext.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

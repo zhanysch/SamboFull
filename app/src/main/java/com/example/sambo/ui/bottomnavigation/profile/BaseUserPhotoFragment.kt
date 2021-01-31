@@ -1,4 +1,4 @@
-package com.example.sambo.ui.bottomnavigation.profilehelper
+package com.example.sambo.ui.bottomnavigation.profile
 
 import android.app.Activity
 import android.content.Context

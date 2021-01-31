@@ -9,11 +9,11 @@ import com.example.sambo.R
 import com.example.sambo.data.common.BaseFragment
 import com.example.sambo.utils.ext.setCornerRadius
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_news_details.*
+import kotlinx.android.synthetic.main.fragment_details.*
 
-class NewsDetailsFragment : BaseFragment() {
-    private val args: NewsDetailsFragmentArgs by navArgs()
-    override fun resID() = R.layout.fragment_news_details
+class DetailsFragment : BaseFragment() {
+    private val args: DetailsFragmentArgs by navArgs()
+    override fun resID() = R.layout.fragment_details
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

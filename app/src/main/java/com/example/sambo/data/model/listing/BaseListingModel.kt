@@ -1,4 +1,4 @@
-package com.example.sambo.data.model.model
+package com.example.sambo.data.model.listing
 
 data class BaseListingModel<T>(
     val rows: List<T>,

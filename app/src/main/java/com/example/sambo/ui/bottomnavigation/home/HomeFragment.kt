@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.SnapHelper
 import com.example.sambo.R
 import com.example.sambo.data.common.BaseFragment
 import com.example.sambo.data.model.advice.AdviceOfDayModel
-import com.example.sambo.data.model.cards.RowsItem
+import com.example.sambo.data.model.listing.RowsModel
 import com.example.sambo.ui.collectionsdetails.CollectionsAdapter
-import com.example.sambo.ui.newsdetails.NewsAdapter
+import com.example.sambo.ui.newsdetails.DetailsAdapter
 import com.example.sambo.utils.decorators.GravitySnapHelper
 import com.example.sambo.utils.decorators.ItemOffsetDecoration
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -32,7 +32,7 @@ class HomeFragment : BaseFragment() {
     }
     private val collectionsAdapter by lazy { CollectionsAdapter() { navigateToCollectionsDetails(it) } }
     private val newsAdapter by lazy {
-        NewsAdapter() { item, image ->
+        DetailsAdapter() { item, image ->
             navigateToNewsDetails(item, image)
         }
     }
@@ -119,19 +119,19 @@ class HomeFragment : BaseFragment() {
         })
     }
 
-    private fun navigateToNewsDetails(data: RowsItem, image: ShapeableImageView) {
+    private fun navigateToNewsDetails(data: RowsModel, image: ShapeableImageView) {
         val extras = FragmentNavigatorExtras(image.toTransitionGroup())
         val destination = HomeFragmentDirections.actionHomeFragmentToNewsDetailsFragment(data)
         findNavController().navigate(destination, extras)
     }
 
-    private fun navigateToCardsDetails(data: RowsItem, image: ImageView) {
+    private fun navigateToCardsDetails(data: RowsModel, image: ImageView) {
         val extras = FragmentNavigatorExtras(image.toTransitionGroup())
         val destination = HomeFragmentDirections.actionHomeFragmentToNewsDetailsFragment(data)
         findNavController().navigate(destination, extras)
     }
 
-    private fun navigateToCollectionsDetails(data: RowsItem) {
+    private fun navigateToCollectionsDetails(data: RowsModel) {
         val destination =
             HomeFragmentDirections.actionHomeFragmentToCollectionsDetailsFragment(data)
         findNavController().navigate(destination)

@@ -1,16 +1,17 @@
 package com.example.sambo.ui.collectionsdetails
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.sambo.data.model.cards.CardsModel
+import com.example.sambo.data.model.listing.BaseListingModel
+import com.example.sambo.data.model.listing.RowsModel
 import com.example.sambo.data.repository.SamboRepository
-import com.example.sambo.utils.ext.SingleLiveEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class CollectionsDetailsViewModel(private val repository: SamboRepository) : ViewModel() {
 
-    val collectionsData = SingleLiveEvent<CardsModel>()
+    val collectionsData = MutableLiveData<BaseListingModel<RowsModel>>()
 
     fun loadSelectionsData(categoryId: Int) {
         viewModelScope.launch(Dispatchers.IO) {

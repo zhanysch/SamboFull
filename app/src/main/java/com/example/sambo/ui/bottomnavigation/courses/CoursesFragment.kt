@@ -6,8 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.sambo.R
 import com.example.sambo.data.common.BaseFragment
-import com.example.sambo.data.model.cards.RowsItem
-import com.example.sambo.data.model.modelBottomSheet.BottomSheetRows
+import com.example.sambo.data.model.listing.RowsModel
 import com.example.sambo.ui.bottomnavigation.courses.adapterForCourseFragment.CoursesAdapter
 import com.example.sambo.ui.bottomnavigation.courses.bottomsheet.BottomSheet
 import com.example.sambo.ui.bottomnavigation.courses.bottomsheet.ItemListener
@@ -42,12 +41,12 @@ class CoursesFragment: BaseFragment(), ItemListener {
         }
     }
 
-    private fun navigateToNewsDetails(data: RowsItem) {
+    private fun navigateToNewsDetails(data: RowsModel) {
         val destination = CoursesFragmentDirections.actionCoursesFragmentToNewsDetailsFragment(data)
         findNavController().navigate(destination)
     }
 
-    override fun itemsClick(item: BottomSheetRows) {   // для подгрузки  оперделенных данных при выборе категории
-      vm.choosedCategory(item)
+    override fun itemsClick(item: RowsModel) {  // для подгрузки  оперделенных данных при выборе категории
+        vm.choosedCategory(item)
     }
 }

@@ -7,14 +7,14 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sambo.R
-import com.example.sambo.data.model.cards.RowsItem
-import com.example.sambo.utils.diffUtils.DiffUtilsCards
+import com.example.sambo.data.model.listing.RowsModel
+import com.example.sambo.utils.diffUtils.DiffUtilsItems
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_collections_details.view.*
 import kotlinx.android.synthetic.main.item_collections_details.view.tvDescriptions
 
-class CollectionsDetailsAdapter(private val listener: (item: RowsItem, image: ImageView) -> Unit) :
-    ListAdapter<RowsItem, CollectionsDetailsViewHolder>(DiffUtilsCards.diffUtilCards) {
+class CollectionsDetailsAdapter(private val listener: (item: RowsModel, image: ImageView) -> Unit) :
+    ListAdapter<RowsModel, CollectionsDetailsViewHolder>(DiffUtilsItems.diffUtilItems) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -30,7 +30,7 @@ class CollectionsDetailsAdapter(private val listener: (item: RowsItem, image: Im
 }
 
 class CollectionsDetailsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    fun bind(item: RowsItem?, listener: (item: RowsItem, image: ImageView) -> Unit) {
+    fun bind(item: RowsModel?, listener: (item: RowsModel, image: ImageView) -> Unit) {
         itemView.tvDescriptions.text = item?.title.toString()
         Picasso.get()
             .load(item?.preview)

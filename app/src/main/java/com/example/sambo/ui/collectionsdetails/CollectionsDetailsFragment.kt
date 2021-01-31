@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.sambo.R
 import com.example.sambo.data.common.BaseFragment
-import com.example.sambo.data.model.cards.RowsItem
+import com.example.sambo.data.model.listing.RowsModel
 import com.example.sambo.utils.decorators.ItemOffsetDecoration
 import com.example.sambo.utils.ext.toTransitionGroup
 import kotlinx.android.synthetic.main.fragment_collections_details.*
@@ -70,7 +70,7 @@ class CollectionsDetailsFragment : BaseFragment() {
         categoryId?.let { vm.loadSelectionsData(it) }
     }
 
-    private fun navigateToNewsDetails(data: RowsItem, image: ImageView) {
+    private fun navigateToNewsDetails(data: RowsModel, image: ImageView) {
         val extras = FragmentNavigatorExtras(image.toTransitionGroup())
         val destination =
             CollectionsDetailsFragmentDirections.actionCollectionsDetailsFragmentToNewsDetailsFragment(

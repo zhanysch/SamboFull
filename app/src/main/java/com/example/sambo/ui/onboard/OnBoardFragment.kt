@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.sambo.R
-import com.example.sambo.data.model.OnBoardModel
+import com.example.sambo.data.model.onboard.OnBoardModel
 import kotlinx.android.synthetic.main.fragment_onboard.*
 
 class OnBoardFragment : Fragment() {

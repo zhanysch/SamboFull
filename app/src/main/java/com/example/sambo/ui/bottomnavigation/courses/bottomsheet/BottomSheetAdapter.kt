@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sambo.R
-import com.example.sambo.data.model.modelBottomSheet.BottomSheetRows
+import com.example.sambo.data.model.listing.RowsModel
 import kotlinx.android.synthetic.main.bottom_sheethelper.view.*
 
 class BottomSheetAdapter(private val listner: ItemListener) :
-    ListAdapter<BottomSheetRows, BottomViewHolder>(DiffUtillBottom()) {
+    ListAdapter<RowsModel, BottomViewHolder>(DiffUtillBottom()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BottomViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.bottom_sheethelper, parent, false)
@@ -26,19 +26,19 @@ class BottomSheetAdapter(private val listner: ItemListener) :
     }
 }
 
-class DiffUtillBottom : DiffUtil.ItemCallback<BottomSheetRows>() {
-    override fun areItemsTheSame(oldItem: BottomSheetRows, newItem: BottomSheetRows): Boolean {
+class DiffUtillBottom : DiffUtil.ItemCallback<RowsModel>() {
+    override fun areItemsTheSame(oldItem: RowsModel, newItem: RowsModel): Boolean {
         return oldItem.hashCode() == newItem.hashCode()
     }
 
-    override fun areContentsTheSame(oldItem: BottomSheetRows, newItem: BottomSheetRows): Boolean {
+    override fun areContentsTheSame(oldItem: RowsModel, newItem: RowsModel): Boolean {
         return oldItem.title == newItem.title
     }
 }
 
 class BottomViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun bind(
-        item: BottomSheetRows
+        item: RowsModel
 
     ) {
         itemView.category_bottomsheet.text = item.title

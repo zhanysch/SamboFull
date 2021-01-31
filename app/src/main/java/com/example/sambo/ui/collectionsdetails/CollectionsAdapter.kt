@@ -6,14 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sambo.R
-import com.example.sambo.data.model.cards.RowsItem
-import com.example.sambo.utils.diffUtils.DiffUtilsCards
+import com.example.sambo.data.model.listing.RowsModel
+import com.example.sambo.utils.diffUtils.DiffUtilsItems
 import com.example.sambo.utils.ext.setCornerRadius
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_main_collections.view.*
 
-class CollectionsAdapter(private val listener: (item: RowsItem) -> Unit) :
-    ListAdapter<RowsItem, CollectionsViewHolder>(DiffUtilsCards.diffUtilCards) {
+class CollectionsAdapter(private val listener: (item: RowsModel) -> Unit) :
+    ListAdapter<RowsModel, CollectionsViewHolder>(DiffUtilsItems.diffUtilItems) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectionsViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_main_collections, parent, false)
@@ -26,7 +26,7 @@ class CollectionsAdapter(private val listener: (item: RowsItem) -> Unit) :
 }
 
 class CollectionsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    fun bind(item: RowsItem?, listener: (item: RowsItem) -> Unit) {
+    fun bind(item: RowsModel?, listener: (item: RowsModel) -> Unit) {
         itemView.tvDescriptions.text = item?.title.toString()
         itemView.collectionsCard.setOnClickListener {
             item?.let { it1 -> listener.invoke(it1) }

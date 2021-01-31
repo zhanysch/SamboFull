@@ -6,16 +6,14 @@ import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sambo.R
-import com.example.sambo.data.model.cards.RowsItem
-import com.example.sambo.utils.diffUtils.DiffUtilsCards
-
-import com.example.sambo.utils.diffUtils.DiffUtilsNews
+import com.example.sambo.data.model.listing.RowsModel
+import com.example.sambo.utils.diffUtils.DiffUtilsItems
 import com.example.sambo.utils.ext.setCornerRadius
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_helper.view.*
 
-class CoursesAdapter(private val listener: (item: RowsItem) -> Unit) :
-    PagedListAdapter<RowsItem, CoursesViewHolder>(DiffUtilsCards.diffUtilCards) {
+class CoursesAdapter(private val listener: (item: RowsModel) -> Unit) :
+    PagedListAdapter<RowsModel, CoursesViewHolder>(DiffUtilsItems.diffUtilItems) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoursesViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.recycler_helper, parent, false)
@@ -27,9 +25,9 @@ class CoursesAdapter(private val listener: (item: RowsItem) -> Unit) :
     }
 }
 
-class CoursesViewHolder(view: View, private val listener: (item: RowsItem) -> Unit) :
+class CoursesViewHolder(view: View, private val listener: (item: RowsModel) -> Unit) :
     RecyclerView.ViewHolder(view) {
-    fun bind(item: RowsItem?) {
+    fun bind(item: RowsModel?) {
         itemView.textCourse.text = item?.title.toString()
         itemView.Material.text = item?.categories_list.toString()
         Picasso.get().load(item?.preview).into(itemView.imageCourse)

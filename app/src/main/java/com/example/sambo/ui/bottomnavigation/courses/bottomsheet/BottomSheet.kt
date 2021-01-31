@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.example.sambo.R
-import com.example.sambo.data.model.modelBottomSheet.BottomSheetRows
+import com.example.sambo.data.model.listing.RowsModel
 import com.example.sambo.ui.bottomnavigation.courses.CoursesViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.view_bottom_sheet.*
@@ -36,7 +36,7 @@ class BottomSheet: BottomSheetDialogFragment(),ItemListener {
         })
     }
 
-    override fun itemsClick(item: BottomSheetRows) {
+    override fun itemsClick(item: RowsModel) {
        vm.text.postValue(item)             // изминен текста в при клике на recyclerview            //????????????????????????????????????
 
     }

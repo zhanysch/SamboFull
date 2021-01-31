@@ -6,15 +6,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sambo.R
-import com.example.sambo.data.model.cards.RowsItem
-import com.example.sambo.utils.diffUtils.DiffUtilsCards
+import com.example.sambo.data.model.listing.RowsModel
+import com.example.sambo.utils.diffUtils.DiffUtilsItems
 import com.example.sambo.utils.ext.setCornerRadius
 import com.google.android.material.imageview.ShapeableImageView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_main_news.view.*
 
-class NewsAdapter(private val listener: (item: RowsItem, image: ShapeableImageView) -> Unit) :
-    ListAdapter<RowsItem, NewsViewHolder>(DiffUtilsCards.diffUtilCards) {
+class DetailsAdapter(private val listener: (item: RowsModel, image: ShapeableImageView) -> Unit) :
+    ListAdapter<RowsModel, NewsViewHolder>(DiffUtilsItems.diffUtilItems) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_main_news, parent, false)
@@ -27,7 +27,7 @@ class NewsAdapter(private val listener: (item: RowsItem, image: ShapeableImageVi
 }
 
 class NewsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    fun bind(item: RowsItem?, listener: (item: RowsItem, image: ShapeableImageView) -> Unit) {
+    fun bind(item: RowsModel?, listener: (item: RowsModel, image: ShapeableImageView) -> Unit) {
         itemView.tvNews.text = item?.title.toString()
         Picasso.get()
             .load(item?.preview)

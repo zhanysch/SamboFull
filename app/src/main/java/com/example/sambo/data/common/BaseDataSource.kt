@@ -1,10 +1,10 @@
 package com.example.sambo.data.common
 
-import com.example.sambo.data.model.modelcourses.MainCourseModel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import androidx.paging.PageKeyedDataSource
+import com.example.sambo.data.model.listing.BaseListingModel
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -16,7 +16,7 @@ abstract class BaseDataSource<T>(
 ) : PageKeyedDataSource<Int, T>() {
     //PageKeyedDataSource  это страница <Int, T>() стрнц запускает Int , хранит данные типом Т
 
-    abstract fun getListByPageNumber(limit: Int, page: Int): MainCourseModel<T>?
+    abstract fun getListByPageNumber(limit: Int, page: Int): BaseListingModel<T>?
 
     private val offset = 20
     private val limit = 20

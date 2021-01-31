@@ -8,7 +8,7 @@ import androidx.viewpager.widget.ViewPager
 import com.example.sambo.R
 import com.example.sambo.data.common.BaseFragment
 import com.example.sambo.data.local.PreferenceHelper
-import com.example.sambo.data.model.OnBoardModel
+import com.example.sambo.data.model.onboard.OnBoardModel
 import kotlinx.android.synthetic.main.activity_on_board.*
 
 class OnBoardMainFragment : BaseFragment() {

@@ -1,7 +1,6 @@
-package com.example.sambo.data.model.model
+package com.example.sambo.data.model.listing
 
 import android.os.Parcelable
-import com.example.sambo.data.model.modelcourses.Categories
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -21,6 +20,6 @@ data class RowsModel(
     val rank: Int,
     val title: String,
     val categories_list: String,
-    val categories: List<Categories>,
+    val categories: List<CategoriesModel>,
     val updated_at: String
 ) : Parcelable

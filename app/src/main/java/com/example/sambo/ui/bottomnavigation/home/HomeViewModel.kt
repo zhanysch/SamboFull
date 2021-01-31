@@ -4,8 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.sambo.data.model.advice.AdviceOfDayModel
-import com.example.sambo.data.model.cards.CardsModel
-import com.example.sambo.data.model.news.NewsModel
+import com.example.sambo.data.model.listing.BaseListingModel
+import com.example.sambo.data.model.listing.RowsModel
 import com.example.sambo.data.repository.SamboRepository
 import com.example.sambo.utils.ext.SingleLiveEvent
 import kotlinx.coroutines.Dispatchers
@@ -13,9 +13,9 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel(private val repository: SamboRepository) : ViewModel() {
 
-    val cardsData = MutableLiveData<CardsModel>()
-    val collectionsData = MutableLiveData<CardsModel>()
-    val newsData = SingleLiveEvent<NewsModel>()
+    val cardsData = MutableLiveData<BaseListingModel<RowsModel>>()
+    val collectionsData = MutableLiveData<BaseListingModel<RowsModel>>()
+    val newsData = SingleLiveEvent<BaseListingModel<RowsModel>>()
     val adviceData = SingleLiveEvent<AdviceOfDayModel>()
 
     fun loadCards() {

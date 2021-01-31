@@ -1,4 +1,4 @@
-package com.example.sambo.data.model
+package com.example.sambo.data.model.onboard
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
