@@ -26,7 +26,7 @@ class CoursesViewModel(private val service: SamboRepository) :
     val data = getPagedList()
     val dataCategory = MutableLiveData<List<RowsModel>>()
     var categoryId: Int =
-        -1   // -1 значен по умолчанию для подгрузки  оперделенных данных при выборе категории
+        -1
 
     fun loadList() {
         viewModelScope.launch {
@@ -36,15 +36,15 @@ class CoursesViewModel(private val service: SamboRepository) :
         }
     }
 
-    fun choosedCategory(item: RowsModel) {   // функц выбирает категорию //  dataSourceFactoryLiveData из класса  BaseDataSource
-        categoryId = item.id                       //invalidate ????
+    fun choosedCategory(item: RowsModel) {
+        categoryId = item.id
         sourceFactory.dataSourceFactoryLiveData.value?.invalidate()
     }
 
-    inner class CourseDataSource(  // это внутренний класс, а не метод
+    inner class CourseDataSource(
         scope: CoroutineScope
     ) : BaseDataSource<RowsModel>(scope) {
-        //<Data> это class  тут укзываетс, чтo тип T это -> class Data (data class)
+
         override fun getListByPageNumber(limit: Int, page: Int):BaseListingModel<RowsModel>? {
             return runBlocking {
                 val data = service.loadData(limit = limit, page = page, categoryId = categoryId)

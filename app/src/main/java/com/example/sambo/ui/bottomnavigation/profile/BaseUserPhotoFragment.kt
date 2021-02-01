@@ -18,16 +18,16 @@ import java.io.IOException
 import java.io.InputStream
 import java.util.*
 
-@RuntimePermissions  // этот класс работает с permissions
+@RuntimePermissions
 abstract  class BaseUserPhotoFragment : BaseFragment(){
 
     abstract fun showPhoto(file: File)
     private var filename: String? = null
 
-     @NeedsPermission(android.Manifest.permission.CAMERA) // для помощи загрузки с камеры!!
+     @NeedsPermission(android.Manifest.permission.CAMERA)
     fun shootPhoto(){
 
-         // после написания метода необходимо прописать build - rebuild project!!!!
+
          filename = System.nanoTime().toString()
          val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
          //val context = SamboApp.applicationContext()
@@ -52,7 +52,7 @@ abstract  class BaseUserPhotoFragment : BaseFragment(){
         super.onActivityResult(requestCode, resultCode, data)
         if ( resultCode == Activity.RESULT_OK){
             when(requestCode){
-                RESULT_CAMERA -> {  // обработка для прихода картинки с камеры
+                RESULT_CAMERA -> {
 
                      val uri = getImageFromCameraUri(data,filename!!)
                     val uriFile = getNormalizedUri(uri = uri)
@@ -75,7 +75,7 @@ abstract  class BaseUserPhotoFragment : BaseFragment(){
         }
     }
 
-    private fun getImageFromCameraUri(data: Intent?, filname: String): Uri? { // для помощи загрузки с камеры!!
+    private fun getImageFromCameraUri(data: Intent?, filname: String): Uri? {
        var isCamera = true
 
         if (data != null && data.data != null){
@@ -89,17 +89,17 @@ abstract  class BaseUserPhotoFragment : BaseFragment(){
             data.data
     }
 
-    @NeedsPermission( android.Manifest.permission.READ_EXTERNAL_STORAGE)  // разрешение на доступ к галерее
-     fun pickPhotofromGalerry(){ // загрузка фото из gallery в фон телефона
+    @NeedsPermission( android.Manifest.permission.READ_EXTERNAL_STORAGE)
+     fun pickPhotofromGalerry(){
         val intent = Intent(Intent.ACTION_PICK , MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         intent.type = "image/*"
         startActivityForResult(intent, RESULT_GALLERY)
 
-        // после написания метода необходимо прописать build - rebuild project!!!!
+
 
     }
 
-    private fun getCaptureImageOutputUri(context: Context, filName : String): Uri? {  // для помощи загрузки с камеры!!
+    private fun getCaptureImageOutputUri(context: Context, filName : String): Uri? {
         var outputFileUri : Uri? = null
         val getImage = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         if (getImage !=null){
@@ -108,14 +108,14 @@ abstract  class BaseUserPhotoFragment : BaseFragment(){
         return outputFileUri
     }
 
-    fun getNormalizedUri(  uri: Uri?): Uri? { // для помощи загрузки с камеры!!
+    fun getNormalizedUri(  uri: Uri?): Uri? {
 
         return  if (uri !=null && uri.toString().contains("content:"))
             Uri.fromFile(getPath(requireContext() , uri, MediaStore.Images.Media.DATA))
         else uri
     }
 
-    private fun getPath(context: Context , uri: Uri, column : String): File? { // для помощи загрузки с камеры!!
+    private fun getPath(context: Context , uri: Uri, column : String): File? {
         val columns = arrayOf(column)
         val cursor = context.contentResolver.query(uri , columns , null,null,null) ?: return null
         val columnIndex = cursor.getColumnIndexOrThrow(column)
@@ -126,7 +126,7 @@ abstract  class BaseUserPhotoFragment : BaseFragment(){
     }
 
 
-    fun getImagePathFromInputStreamUri(context: Context, uri: Uri): String? { // для помощи загрузки картинок из gallery!!!
+    fun getImagePathFromInputStreamUri(context: Context, uri: Uri): String? {
         var inputStream: InputStream? = null
         var filePath: String? = null
 
@@ -147,7 +147,7 @@ abstract  class BaseUserPhotoFragment : BaseFragment(){
     }
 
     @Throws(IOException::class)
-    private fun createTemporalFileFrom(context: Context, inputStream: InputStream?): File? {  // для помощи загрузки картинок из gallery!!!
+    private fun createTemporalFileFrom(context: Context, inputStream: InputStream?): File? {
         var targetFile: File? = null
 
         if (inputStream != null) {
@@ -174,7 +174,7 @@ abstract  class BaseUserPhotoFragment : BaseFragment(){
 
         return targetFile
     }
-    private fun createTemporalFile(  // для помощи загрузки картинок из gallery!!!
+    private fun createTemporalFile(
             context: Context,
             filePath: String = Calendar.getInstance().timeInMillis.toString()
     ): File {

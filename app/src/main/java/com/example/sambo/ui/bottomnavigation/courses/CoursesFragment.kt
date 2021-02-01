@@ -30,9 +30,9 @@ class CoursesFragment: BaseFragment(), ItemListener {
 
         vm.loadList()
         vm.text.observe(viewLifecycleOwner, Observer {
-                 // изминен текста при клике на recyclerview
+
                 textChange.text = it.title
-              vm.choosedCategory(it)  // подгрузка картины при клике на категорию
+              vm.choosedCategory(it)
         })
 
         recycler_courses.apply {
@@ -62,7 +62,7 @@ class CoursesFragment: BaseFragment(), ItemListener {
         findNavController().navigate(destination,extras)
     }
 
-    override fun itemsClick(item: RowsModel) {  // для подгрузки  оперделенных данных при выборе категории
+    override fun itemsClick(item: RowsModel) {
         vm.choosedCategory(item)
     }
 }

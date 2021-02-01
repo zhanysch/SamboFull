@@ -21,7 +21,7 @@ class BottomSheetAdapter(private val listner: ItemListener) :
     override fun onBindViewHolder(holder: BottomViewHolder, position: Int) {
         holder.bind(getItem(position))
         holder.itemView.category_bottomsheet.setOnClickListener {
-            listner.itemsClick(getItem(position))       // для изминения textview course fragment при клике textview из recyclrerVIew!!!!!!!!
+            listner.itemsClick(getItem(position))
         }
     }
 }
