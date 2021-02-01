@@ -35,10 +35,10 @@ class CoursesViewHolder(view: View, private val listener: (item: RowsModel, imag
 
         val radius = itemView.context.resources.getDimension(R.dimen.imageCutted)
 
-        itemView.imageCourse.transitionName =     /// анимация
+        itemView.imageCourse.transitionName =
             itemView.context.resources.getString(R.string.image_transition, item?.id)
 
-        itemView.imageCourse.setCornerRadius(  // view Extension
+        itemView.imageCourse.setCornerRadius(
             topLeft = radius,
             topRight = radius,
             bottomLeft = radius,
