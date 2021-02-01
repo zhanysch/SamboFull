@@ -5,6 +5,6 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.sambo.ui.bottomnavigation.profilehelper.ProfileFragment"
+        android:name="com.example.sambo.ui.bottomnavigation.profile.ProfileFragment"
         android:label="ProfileFragment" />
 </navigation>

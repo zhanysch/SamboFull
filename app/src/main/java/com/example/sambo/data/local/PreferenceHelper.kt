@@ -9,8 +9,6 @@ object PreferenceHelper {
     private const val IS_FIRST_LAUNCH = "IS_FIRST_LAUNCH"
     private const val FOR_REGISTR= "FOR_REGISTR"
 
-
-
     private var preference: SharedPreferences? = null
 
     fun init(context: Context){
@@ -33,6 +31,4 @@ object PreferenceHelper {
 
     fun getIsFirstLaunch() = preference?.getBoolean(
         IS_FIRST_LAUNCH,true) ?: true
-
-
 }

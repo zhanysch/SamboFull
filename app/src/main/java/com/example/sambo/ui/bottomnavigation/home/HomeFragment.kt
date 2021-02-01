@@ -3,25 +3,39 @@ package com.example.sambo.ui.bottomnavigation.home
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
+import android.widget.ImageView
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.SnapHelper
 import com.example.sambo.R
+import com.example.sambo.data.common.BaseFragment
 import com.example.sambo.data.model.advice.AdviceOfDayModel
-import com.example.sambo.data.model.cards.RowsItem
-import com.example.sambo.ui.bottomnavigation.BaseFragment
+import com.example.sambo.data.model.listing.RowsModel
+import com.example.sambo.ui.collectionsdetails.CollectionsAdapter
+import com.example.sambo.ui.newsdetails.DetailsAdapter
 import com.example.sambo.utils.decorators.GravitySnapHelper
 import com.example.sambo.utils.decorators.ItemOffsetDecoration
 import kotlinx.android.synthetic.main.fragment_home.*
+import com.example.sambo.utils.ext.toTransitionGroup
+import com.google.android.material.imageview.ShapeableImageView
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import androidx.navigation.fragment.findNavController
 
 class HomeFragment : BaseFragment() {
 
     override fun resID() = R.layout.fragment_home
     private val vm by sharedViewModel<HomeViewModel>()
-    private val cardsAdapter by lazy { CardsAdapter() { navigateToNewsDetails(it) } }
+    private val cardsAdapter by lazy {
+        CardsAdapter() { item, image ->
+            navigateToCardsDetails(item, image)
+        }
+    }
     private val collectionsAdapter by lazy { CollectionsAdapter() { navigateToCollectionsDetails(it) } }
-    private val newsAdapter by lazy { NewsAdapter() { navigateToNewsDetails(it) } }
+    private val newsAdapter by lazy {
+        DetailsAdapter() { item, image ->
+            navigateToNewsDetails(item, image)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,9 +55,24 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun setupRecyclerView() {
-        recyclerViewCards.adapter = cardsAdapter
+        recyclerViewCards.apply {
+            adapter = cardsAdapter
+            postponeEnterTransition()
+            viewTreeObserver.addOnPreDrawListener {
+                startPostponedEnterTransition()
+                true
+            }
+        }
         recyclerViewCollections.adapter = collectionsAdapter
-        recyclerviewNews.adapter = newsAdapter
+        recyclerViewNews.apply {
+            adapter = newsAdapter
+            postponeEnterTransition()
+            viewTreeObserver.addOnPreDrawListener {
+                startPostponedEnterTransition()
+                true
+            }
+        }
+
 
         val helper: SnapHelper = GravitySnapHelper(Gravity.START)
         helper.attachToRecyclerView(recyclerViewCards)
@@ -66,7 +95,7 @@ class HomeFragment : BaseFragment() {
             )
         )
 
-        recyclerviewNews.addItemDecoration(
+        recyclerViewNews.addItemDecoration(
             ItemOffsetDecoration(
                 itemBottomMargin = 28f
             )
@@ -90,12 +119,19 @@ class HomeFragment : BaseFragment() {
         })
     }
 
-    private fun navigateToNewsDetails(data: RowsItem) {
+    private fun navigateToNewsDetails(data: RowsModel, image: ShapeableImageView) {
+        val extras = FragmentNavigatorExtras(image.toTransitionGroup())
         val destination = HomeFragmentDirections.actionHomeFragmentToNewsDetailsFragment(data)
-        findNavController().navigate(destination)
+        findNavController().navigate(destination, extras)
     }
 
-    private fun navigateToCollectionsDetails(data: RowsItem) {
+    private fun navigateToCardsDetails(data: RowsModel, image: ImageView) {
+        val extras = FragmentNavigatorExtras(image.toTransitionGroup())
+        val destination = HomeFragmentDirections.actionHomeFragmentToNewsDetailsFragment(data)
+        findNavController().navigate(destination, extras)
+    }
+
+    private fun navigateToCollectionsDetails(data: RowsModel) {
         val destination =
             HomeFragmentDirections.actionHomeFragmentToCollectionsDetailsFragment(data)
         findNavController().navigate(destination)

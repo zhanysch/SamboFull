@@ -2,6 +2,7 @@ package com.example.sambo.utils.ext
 
 import android.content.Context
 import android.util.TypedValue
+import android.view.View
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.shape.CornerFamily
 
@@ -12,11 +13,11 @@ fun Context.dpToPx(dimens: Float?): Int {
 }
 
 fun ShapeableImageView.setCornerRadius(
-    topRight : Float = 0f,
-    topLeft : Float = 0f,
+    topRight: Float = 0f,
+    topLeft: Float = 0f,
     bottomRight: Float = 0f,
-    bottomLeft : Float = 0f
-){
+    bottomLeft: Float = 0f
+) {
     this.shapeAppearanceModel = this.shapeAppearanceModel
         .toBuilder()
         .setTopLeftCorner(CornerFamily.ROUNDED, topLeft)
@@ -25,3 +26,5 @@ fun ShapeableImageView.setCornerRadius(
         .setBottomRightCorner(CornerFamily.ROUNDED, bottomRight)
         .build()
 }
+
+fun View.toTransitionGroup() = this to transitionName

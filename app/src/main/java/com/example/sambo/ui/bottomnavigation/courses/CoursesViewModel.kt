@@ -2,21 +2,18 @@ package com.example.sambo.ui.bottomnavigation.courses
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.example.sambo.data.modelcourses.MainCourseModel
-
 import androidx.lifecycle.viewModelScope
-import com.example.sambo.data.commonpagination.BaseDataSource
-import com.example.sambo.data.commonpagination.BasePagedViewModel
-import com.example.sambo.data.model.cards.RowsItem
-
-import com.example.sambo.data.modelBottomSheet.BottomSheetRows
+import com.example.sambo.data.common.BaseDataSource
+import com.example.sambo.data.common.BasePagedViewModel
+import com.example.sambo.data.model.listing.BaseListingModel
+import com.example.sambo.data.model.listing.RowsModel
 import com.example.sambo.data.repository.SamboRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 class CoursesViewModel(private val service: SamboRepository) :
-    BasePagedViewModel<RowsItem, CoursesViewModel.CourseDataSource>() {
+    BasePagedViewModel<RowsModel, CoursesViewModel.CourseDataSource>() {
 
 
     override val sourceFactory by lazy {
@@ -25,9 +22,9 @@ class CoursesViewModel(private val service: SamboRepository) :
         }
     }
 
-    val text = MutableLiveData<BottomSheetRows>()
+    val text = MutableLiveData<RowsModel>()
     val data = getPagedList()
-    val dataCategory = MutableLiveData<List<BottomSheetRows>>()
+    val dataCategory = MutableLiveData<List<RowsModel>>()
     var categoryId: Int =
         -1   // -1 значен по умолчанию для подгрузки  оперделенных данных при выборе категории
 
@@ -39,16 +36,16 @@ class CoursesViewModel(private val service: SamboRepository) :
         }
     }
 
-    fun choosedCategory(item: BottomSheetRows) {   // функц выбирает категорию //  dataSourceFactoryLiveData из класса  BaseDataSource
+    fun choosedCategory(item: RowsModel) {   // функц выбирает категорию //  dataSourceFactoryLiveData из класса  BaseDataSource
         categoryId = item.id                       //invalidate ????
         sourceFactory.dataSourceFactoryLiveData.value?.invalidate()
     }
 
     inner class CourseDataSource(  // это внутренний класс, а не метод
         scope: CoroutineScope
-    ) : BaseDataSource<RowsItem>(scope) {
+    ) : BaseDataSource<RowsModel>(scope) {
         //<Data> это class  тут укзываетс, чтo тип T это -> class Data (data class)
-        override fun getListByPageNumber(limit: Int, page: Int): MainCourseModel<RowsItem>? {
+        override fun getListByPageNumber(limit: Int, page: Int):BaseListingModel<RowsModel>? {
             return runBlocking {
                 val data = service.loadData(limit = limit, page = page, categoryId = categoryId)
 

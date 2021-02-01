@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/registrationOneFragment"
-        android:name="com.example.sambo.ui.main.RegistrationOneFragment"
+        android:name="com.example.sambo.ui.registration.RegistrationOneFragment"
         android:label="activity_registone"
         tools:layout="@layout/activity_registone" >
         <action
@@ -38,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/registrationTwoFragment2"
-        android:name="com.example.sambo.ui.main.RegistrationTwoFragment"
+        android:name="com.example.sambo.ui.registration.RegistrationTwoFragment"
         android:label="activity_regist"
         tools:layout="@layout/activity_regist" >
         <action
@@ -47,9 +47,9 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.sambo.ui.bottomnavigation.profilehelper.ProfileFragment"
+        android:name="com.example.sambo.ui.bottomnavigation.profile.ProfileFragment"
         android:label="ProfileFragment"
-        tools:layout="@layout/profile_fragment">
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_registrationOneFragment"
             app:destination="@id/registrationOneFragment" />

@@ -35,13 +35,16 @@
                 android:id="@+id/tvDescriptions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp24"
+                android:layout_marginStart="@dimen/dp20"
                 android:layout_marginEnd="@dimen/dp24"
                 android:layout_marginBottom="@dimen/dp20"
                 android:ellipsize="end"
+                android:fontFamily="@font/gilroy_medium"
                 android:gravity="center_vertical"
                 android:lineSpacingExtra="@dimen/sp3"
                 android:maxLines="2"
+                android:textColor="@color/colorDarkSecond"
+                android:textSize="@dimen/sp18"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

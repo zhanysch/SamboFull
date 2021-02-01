@@ -13,12 +13,11 @@
     </fragment>
     <fragment
         android:id="@+id/coursesDetailsFragment"
-        android:name="com.example.sambo.ui.bottomnavigation.home.NewsDetailsFragment"
+        android:name="com.example.sambo.ui.newsdetails.DetailsFragment"
         android:label="NewsDetailsFragment" >
         <argument
             android:name="details"
-            app:argType="com.example.sambo.data.model.cards.RowsItem"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:argType="com.example.sambo.data.model.listing.RowsModel"
+            app:nullable="true" />
     </fragment>
 </navigation>
